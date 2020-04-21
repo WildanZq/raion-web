@@ -143,6 +143,20 @@ body {
     align-items: center;
 }
 
+.point > span {
+    position: absolute;
+    text-align: right;
+    right: 0;
+    font-size: .8rem;
+    opacity: 0;
+    transition: right .3s, opacity .3s;
+}
+
+.point:hover > span {
+    right: 1.8rem;
+    opacity: 1;
+}
+
 .point::after {
     content: "";
     border-radius: 20px;
