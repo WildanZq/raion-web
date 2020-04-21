@@ -1,0 +1,228 @@
+@font-face {
+  font-family: CenturyGothic;
+  src: url('../font/CenturyGothic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: CenturyGothicBold;
+  src: url('../font/CenturyGothicBold.ttf') format('truetype');
+}
+
+:root {
+    --primary-gradient: linear-gradient(to right, #4840BE , #060646);
+    --primary-color: #09084b;
+    --secondary-color: #F0B505;
+    --bg-color: #ECF0F3;
+    --v-spacing: 2rem;
+    --h-spacing: 4rem;
+}
+
+* {
+    font-family: CenturyGothicBold;
+}
+
+body {
+    background-color: var(--bg-color);
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.square-wrapper {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: absolute;
+}
+
+.square {
+    position: absolute;
+    width: 100vw;
+    min-width: 1400px;
+    height: 140vh;
+    border-radius: 3rem;
+    background-image: var(--primary-gradient);
+    transform: rotateZ(60deg);
+    top: -30rem;
+    left: -28rem;
+}
+
+.page-wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.nav-wrapper {
+    margin-top: calc(var(--v-spacing) / 2);
+    top: var(--v-spacing);
+    right: var(--h-spacing);
+}
+
+.nav-item.btn {
+    border: 2px solid var(--primary-color);
+    padding: .2rem .8rem;
+    font-size: .8rem;
+    background-color: var(--bg-color);
+}
+
+.side-nav-wrapper {
+    position: absolute;
+    z-index: 3;
+    width: 0;
+    height: 100vh;
+    right: 0;
+    transition: width .5s;
+    overflow: hidden;
+}
+
+.side-nav-wrapper.active {
+    width: 100%;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.active > .overlay {
+    opacity: .5;
+}
+
+.side-nav {
+    position: absolute;
+    right: -100%;
+    height: 100%;
+    top: 0;
+    width: 70%;
+    max-width: 320px;
+    background-color: var(--bg-color);
+    transition: right .5s;
+}
+
+.active .side-nav {
+    right: 0;
+}
+
+.side-nav-item {
+    width: 100%;
+    border: none;
+    padding: 1rem;
+}
+
+.side-nav-item:hover {
+    filter: brightness(.8);
+}
+
+.point-wrapper {
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    top: 0;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.point {
+    position: relative;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    border: 4px solid var(--primary-color);
+    background-color: var(--bg-color);
+    margin: .4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point::after {
+    content: "";
+    border-radius: 20px;
+    width: 0;
+    height: 0;
+    background-color: var(--primary-color);
+    transition: width .5s, height .5s;
+}
+
+.active.point::after, .point:hover::after {
+    width: 8px;
+    height: 8px;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+.p-fixed {
+    position: fixed;
+    z-index: 2;
+}
+
+.p-main {
+    padding: var(--v-spacing) var(--h-spacing);
+}
+
+.m-main {
+    margin: var(--v-spacing) var(--h-spacing);
+}
+
+.logo {
+    width: 128px;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    padding: .5rem 2rem;
+    transition: filter .5s, transform .5s, background-color .5s;
+}
+
+.btn:hover {
+    transform: translateY(-.2rem);
+    filter: brightness(.9);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+.top-0 {
+    top: 0;
+}
+
+.bg-contain {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (max-width: 767px) {
+    :root {
+        --v-spacing: 1rem;
+        --h-spacing: 2rem;
+    }
+
+    .square {
+        width: 120vw;
+        min-width: 800px;
+        height: 140vh;
+        top: -12rem;
+        left: -26rem;
+    }
+
+    .raion-text {
+        font-size: 2.6rem;
+    }
+}
