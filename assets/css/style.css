@@ -8,9 +8,31 @@
   src: url('../font/CenturyGothicBold.ttf') format('truetype');
 }
 
+@keyframes square-in {
+    from {
+        top: -200%;
+        transform: rotate(30deg);
+    }
+    to {
+        top: -30rem;
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes page-in {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 :root {
     --primary-gradient: linear-gradient(to right, #4840BE , #060646);
-    --primary-color: #09084b;
+    --primary-color: #272381;
     --secondary-color: #F0B505;
     --bg-color: #ECF0F3;
     --v-spacing: 2rem;
@@ -42,9 +64,16 @@ body {
     height: 140vh;
     border-radius: 3rem;
     background-image: var(--primary-gradient);
-    transform: rotateZ(60deg);
+    transform: rotate(60deg);
     top: -30rem;
     left: -28rem;
+    transition: top .5s, transform .5s;
+    animation: square-in .5s;
+}
+
+.square-wrapper.hidden .square {
+    top: -200%;
+    transform: rotate(30deg);
 }
 
 .page-wrapper {
@@ -52,6 +81,30 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100vh;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity .5s, transform .5s;
+    animation: page-in .5s;
+}
+
+.page-wrapper.hidden {
+    visibility: hidden;
+}
+
+.page-wrapper.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-wrapper.fade-up {
+    opacity: 0;
+    transform: translateY(-2rem);
+}
+
+.page-wrapper.fade-down {
+    opacity: 0;
+    transform: translateY(2rem);
 }
 
 .nav-wrapper {
@@ -152,7 +205,7 @@ body {
     transition: right .3s, opacity .3s;
 }
 
-.point:hover > span {
+.point:hover > span, .active.point > span {
     right: 1.8rem;
     opacity: 1;
 }
@@ -171,6 +224,14 @@ body {
     height: 8px;
 }
 
+.title {
+    font-size: 3rem;
+}
+
+.thin, p {
+    font-family: CenturyGothic;
+}
+
 .p-absolute {
     position: absolute;
 }
@@ -178,6 +239,14 @@ body {
 .p-fixed {
     position: fixed;
     z-index: 2;
+}
+
+.p-left {
+    padding-left: var(--h-spacing);
+}
+
+.p-right {
+    padding-right: var(--h-spacing);
 }
 
 .p-main {
@@ -189,7 +258,26 @@ body {
 }
 
 .logo {
-    width: 128px;
+    width: 158px;
+    background-image: linear-gradient(to bottom right, #2b278a, #24207d);
+    padding: .6rem 1rem;
+    border-radius: 12px;
+    margin-left: calc(var(--h-spacing) - 1rem);
+    margin-top: calc(var(--v-spacing) - .6rem);
+}
+
+.logo.hide-bg {
+    background-image: none;
+}
+
+.divisi-logo-wrapper {
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    border-radius: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn {
@@ -228,6 +316,17 @@ body {
         --h-spacing: 2rem;
     }
 
+    @keyframes square-in {
+        from {
+            top: -200%;
+            transform: rotate(30deg);
+        }
+        to {
+            top: -12rem;
+            transform: rotate(60deg);
+        }
+    }
+
     .square {
         width: 120vw;
         min-width: 800px;
@@ -238,5 +337,10 @@ body {
 
     .raion-text {
         font-size: 2.6rem;
+    }
+
+    .active.point > span {
+        right: 0;
+        opacity: 0;
     }
 }

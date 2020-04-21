@@ -17,6 +17,7 @@ function changeActivePoint(index) {
     pointChanging = true;
     point.children[currentPoint].classList.remove('active');
     point.children[index].classList.add('active');
+    changePage(index);
     
     setTimeout(() => {
         currentPoint = index;
@@ -42,9 +43,9 @@ document.ontouchstart = function(event) {
 }
 document.ontouchend = function(event) {
     let te = event.changedTouches[0].clientY;
-    if (ts > te + 5) { // down
+    if (ts > te + 100) { // down
         changeActivePoint(currentPoint + 1);
-    } else if (ts < te - 5) { // up
+    } else if (ts < te - 100) { // up
         changeActivePoint(currentPoint - 1);
     }
 }
@@ -59,4 +60,34 @@ document.onkeydown = function(event) {
             break;
         default: return;
     }
+}
+
+// handling page transition
+const logo = document.getElementById('logo');
+const square = document.getElementById('square');
+const main = document.getElementById('main-page');
+
+function changePage(index) {
+    if (currentPoint === 0) {
+        logo.classList.remove('hide-bg')
+        square.classList.add('hidden');
+    } else if (index === 0) {
+        logo.classList.add('hide-bg')
+        square.classList.remove('hidden');
+    }
+
+    main.children[currentPoint].classList.remove('active');
+    if (currentPoint < index) {
+        main.children[currentPoint].classList.add('fade-up');
+    } else {
+        main.children[currentPoint].classList.add('fade-down');
+    }
+
+    setTimeout(() => {
+        main.children[currentPoint].classList.add('hidden');
+        main.children[index].classList.remove('hidden');
+        main.children[index].classList.add('active');
+        main.children[index].classList.remove('fade-up');
+        main.children[index].classList.remove('fade-down');
+    }, 500);
 }
