@@ -37,6 +37,7 @@
     --bg-color: #ECF0F3;
     --v-spacing: 2rem;
     --h-spacing: 4rem;
+    --text-color: #515050;
 }
 
 * {
@@ -48,6 +49,7 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100vh;
+    color: var(--text-color);
 }
 
 .square-wrapper {
@@ -67,13 +69,19 @@ body {
     transform: rotate(60deg);
     top: -30rem;
     left: -28rem;
-    transition: top .5s, transform .5s;
+    transition: top .8s, transform .8s, left .8s;
     animation: square-in .5s;
 }
 
 .square-wrapper.hidden .square {
     top: -200%;
     transform: rotate(30deg);
+}
+
+.square-wrapper.hidden.full-screen .square {
+    top: -2vh;
+    left: -2vw;
+    transform: rotate(0) scale(1.1);
 }
 
 .page-wrapper {
@@ -273,6 +281,7 @@ body {
 }
 
 .logo {
+    cursor: pointer;
     width: 158px;
     background-image: linear-gradient(to bottom right, #2b278a, #24207d);
     padding: .6rem 1rem;
@@ -288,7 +297,7 @@ body {
 .divisi-logo-wrapper {
     width: 150px;
     height: 150px;
-    background-color: var(--primary-color);
+    background-image: var(--primary-gradient);
     border-radius: 80%;
     display: flex;
     justify-content: center;
@@ -311,12 +320,94 @@ body {
     background-color: var(--secondary-color);
 }
 
+.btn-secondary.glide__arrow {
+    padding: .5rem 1rem;
+}
+
 .btn-secondary:hover {
     background-color: var(--secondary-color);
 }
 
+.btn-secondary.glide__arrow:hover {
+    transform: translateY(-60%);
+    filter: brightness(.9);
+}
+
+.glide__arrow--left {
+    left: -1rem;
+}
+
+.glide__arrow--right {
+    right: -1rem;
+}
+
+.glide {
+    width: 80%;
+    margin: auto;
+}
+
+.product-card {
+    height: 43vh;
+    background-color: var(--bg-color);
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card .card-header {
+    background-color: var(--bg-color);
+    border: none;
+}
+
+.product-card .product-img {
+    height: 18vh;
+}
+
+.product-card p {
+    position: relative;
+    font-size: .9rem;
+    height: 13vh;
+    white-space: normal;
+}
+
+.product-card p.text-truncate::before {
+  position: absolute;
+  content: "...";
+  bottom: .4rem;
+  right: 0;
+}
+
+.product-card p.text-truncate::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}
+
+.product-card a {
+    font-size: .9rem;
+}
+
+.product-card .card-footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+.product-card .date {
+    font-size: .6rem;
+}
+
 .top-0 {
     top: 0;
+}
+
+.bg-primary {
+    background-image: var(--primary-gradient);
 }
 
 .bg-contain {
@@ -328,6 +419,11 @@ body {
 .bg-cover {
     background-size: cover;
     background-position: center;
+}
+
+.width-controller {
+    max-width: 1312px;
+    margin: auto;
 }
 
 @media screen and (max-width: 767px) {

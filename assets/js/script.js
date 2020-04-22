@@ -3,6 +3,10 @@ function toggleSideNav() {
     document.getElementById('side-nav').classList.toggle('active');
 }
 
+function closeSideNav() {
+    document.getElementById('side-nav').classList.remove('active');
+}
+
 document.getElementById('nav-toggler').onclick = toggleSideNav;
 document.getElementById('side-nav-overlay').onclick = toggleSideNav;
 
@@ -66,14 +70,32 @@ document.onkeydown = function(event) {
 const logo = document.getElementById('logo');
 const square = document.getElementById('square');
 const main = document.getElementById('main-page');
+const navHome = document.getElementsByClassName('nav-home');
+
+logo.onclick = () => changeActivePoint(0);
+for (let i = 0; i < navHome.length; i++) {
+    navHome.item(i).onclick = () => {
+        closeSideNav();
+        changeActivePoint(0);
+    };
+}
 
 function changePage(index) {
     if (currentPoint === 0) {
         logo.classList.remove('hide-bg');
         square.classList.add('hidden');
-    } else if (index === 0) {
+    } else if (currentPoint === 3) {
+        logo.classList.remove('hide-bg');
+        point.classList.remove('text-white');
+        square.classList.remove('full-screen');
+    }
+    if (index === 0) {
         logo.classList.add('hide-bg');
         square.classList.remove('hidden');
+    } else if (index === 3) {
+        logo.classList.add('hide-bg');
+        point.classList.add('text-white');
+        square.classList.add('full-screen');
     }
 
     main.children[currentPoint].classList.remove('active');
