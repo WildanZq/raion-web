@@ -20,7 +20,7 @@
             <button class="side-nav-item">Tentang</button>
         </div>
     </div>
-    <div class="p-fixed nav-wrapper">
+    <nav class="p-fixed nav-wrapper">
         <div class="d-none d-md-flex">
             <button class="btn nav-item shadow mx-1 nav-home">Beranda</button>
             <button class="btn nav-item shadow mx-1">Anggota</button>
@@ -29,7 +29,7 @@
         <button class="btn nav-item shadow navbar-light d-block d-md-none" id="nav-toggler">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </div>
+    </nav>
     <div class="point-wrapper" id="point">
         <span class="point shadow active">
             <span>Tentang</span>
@@ -237,7 +237,41 @@
                 </div>
             </div>
         </div>
-        <div class="page-wrapper hidden" id="contact"></div>
+        <div class="page-wrapper hidden w-100 h-100 d-flex align-items-center" id="contact">
+            <div class="w-100 width-controller contact">
+                <h1 class="title thin mb-md-5 mb-4 ml-4 ml-md-5">Meet Us</h1>
+                <div class="row">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img class="ml-4 ml-md-5 pr-4 d-none d-md-block" src="./assets/img/contact.svg" alt="Produk" width="100%">
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center px-4 px-md-5">
+                        <div class="row px-4 px-md-0">
+                            <div class="col-lg-6 d-md-block d-flex">
+                                <div class="icon-wrapper location mb-md-2 mr-2 mr-md-0"></div>
+                                <p>
+                                    Gedung C1.8
+                                    Fakultas Ilmu Komputer
+                                    Universitas Brawijaya
+                                </p>
+                            </div>
+                            <div class="col-lg-6 d-md-block d-flex">
+                                <div class="icon-wrapper email mb-md-2 mr-2 mr-md-0"></div>
+                                <p>raioncom@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-primary d-flex justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row text-white" id="footer">
+            <p class="mb-0 text-center text-md-left">Developed Marketing Raion Community 2020</p>
+            <div class="d-flex mb-2 mb-md-0">
+                <a href="https://www.instagram.com/raion_community/" class="icon-wrapper mx-2 instagram"></a>
+                <a href="https://www.facebook.com/raioncommunity/" class="icon-wrapper mx-2 facebook"></a>
+                <a href="https://twitter.com/RaionCommunity" class="icon-wrapper mx-2 twitter"></a>
+                <a href="https://www.youtube.com/channel/UCM_KCSus8eODu2AlOMuIsrg" class="icon-wrapper mx-2 youtube"></a>
+            </div>
+        </footer>
     </div>
     <script src="./assets/js/glide.min.js"></script>
     <script>

@@ -52,6 +52,15 @@ body {
     color: var(--text-color);
 }
 
+body.dark {
+    --text-color: #ffffff;
+    --bg-color: rgb(29, 29, 29);
+}
+
+body.dark .shadow {
+    box-shadow: 0 .5rem 1rem rgba(255,255,255,.03)!important;
+}
+
 .square-wrapper {
     width: 100%;
     height: 100vh;
@@ -126,6 +135,7 @@ body {
     padding: .2rem .8rem;
     font-size: .8rem;
     background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .side-nav-wrapper {
@@ -288,10 +298,16 @@ body {
     border-radius: 12px;
     margin-left: calc(var(--h-spacing) - 1rem);
     margin-top: calc(var(--v-spacing) - .6rem);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+body.dark .logo {
+    box-shadow: 0 .5rem 1rem rgba(255,255,255,.03);
 }
 
 .logo.hide-bg {
     background-image: none;
+    box-shadow: none !important;
 }
 
 .divisi-logo-wrapper {
@@ -400,6 +416,65 @@ body {
 
 .product-card .date {
     font-size: .6rem;
+}
+
+.contact .icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact .icon-wrapper.location {
+    background-image: url(../icon/location.svg);
+}
+
+.contact .icon-wrapper.email {
+    background-image: url(../icon/email.svg);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1.4rem var(--h-spacing);
+    font-size: .9rem;
+    transform: translateY(100%);
+    transition: transform .5s;
+}
+
+footer.show {
+    transform: translateY(0);
+}
+
+footer .icon-wrapper {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform .5s;
+}
+
+footer .icon-wrapper:hover {
+    transform: translateY(-.15rem);
+}
+
+footer .icon-wrapper.instagram {
+    background-image: url(../icon/instagram.svg);
+}
+
+footer .icon-wrapper.facebook {
+    background-image: url(../icon/facebook.svg);
+}
+
+footer .icon-wrapper.twitter {
+    background-image: url(../icon/twitter.svg);
+}
+
+footer .icon-wrapper.youtube {
+    background-image: url(../icon/youtube.svg);
 }
 
 .top-0 {

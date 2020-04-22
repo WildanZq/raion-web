@@ -71,6 +71,7 @@ const logo = document.getElementById('logo');
 const square = document.getElementById('square');
 const main = document.getElementById('main-page');
 const navHome = document.getElementsByClassName('nav-home');
+const footer = document.getElementById('footer');
 
 logo.onclick = () => changeActivePoint(0);
 for (let i = 0; i < navHome.length; i++) {
@@ -88,7 +89,10 @@ function changePage(index) {
         logo.classList.remove('hide-bg');
         point.classList.remove('text-white');
         square.classList.remove('full-screen');
+    } else if (currentPoint === 4) {
+        footer.classList.remove('show');
     }
+
     if (index === 0) {
         logo.classList.add('hide-bg');
         square.classList.remove('hidden');
@@ -96,6 +100,8 @@ function changePage(index) {
         logo.classList.add('hide-bg');
         point.classList.add('text-white');
         square.classList.add('full-screen');
+    } else if (index === 4) {
+        footer.classList.add('show');
     }
 
     main.children[currentPoint].classList.remove('active');
