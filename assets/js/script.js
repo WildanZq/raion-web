@@ -1,3 +1,4 @@
+'use strict';
 // mobile side navigation
 function toggleSideNav() {
     document.getElementById('side-nav').classList.toggle('active');
@@ -14,9 +15,10 @@ document.getElementById('side-nav-overlay').onclick = toggleSideNav;
 const point = document.getElementById('point');
 let currentPoint = 0;
 let pointChanging = false;
+let isHome = false;
 
 function changeActivePoint(index) {
-    if (pointChanging || index < 0 || index > 4) return;
+    if (pointChanging || index < 0 || index > 4 || !isHome) return;
 
     pointChanging = true;
     point.children[currentPoint].classList.remove('active');
@@ -122,4 +124,76 @@ function changePage(index) {
         main.children[index].classList.remove('fade-up');
         main.children[index].classList.remove('fade-down');
     }, 500);
+}
+
+// handling page change
+let pageChanging = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    var page = window.location.hash.substr(1);
+    loadPage(page);
+});
+
+window.onhashchange = function() {
+    var page = window.location.hash.substr(1);
+    loadPage(page);
+}
+
+function loadPage(page) {
+    if (pageChanging) return;
+    pageChanging = true;
+
+    const pageContainer = document.getElementById('more-page');
+    pageContainer.classList.remove('show');
+    
+    if (page != 'member' && page != 'about') {
+        isHome = true;
+        changeActivePoint(currentPoint);
+        setTimeout(() => {
+            main.classList.remove('hidden');
+            pageContainer.classList.add('hidden');
+            pageChanging = false;
+        }, 500);
+        return;
+    } else {
+        isHome = false;
+    }
+
+    logo.classList.remove('hide-bg');
+
+    main.classList.add('hidden');
+    pageContainer.classList.remove('hidden');
+    pageContainer.classList.add('show');
+
+    pageContainer.innerHTML = `
+        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    `;
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        pageChanging = false;
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                pageContainer.innerHTML = xhttp.responseText;
+            } else if (this.status == 404) {
+                pageContainer.innerHTML = `
+                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                        <p>Halaman tidak ditemukan.</p>
+                    </div>
+                `;
+            } else {
+                pageContainer.innerHTML = `
+                    <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                        <p>Ups.. halaman tidak dapat diakses.</p>
+                    </div>
+                `;
+            }
+        }
+    };
+    xhttp.open("GET", page + ".html", true);
+    xhttp.send();
 }

@@ -1,0 +1,21 @@
+{
+    "name": "Raion Community",
+    "short_name": "Raion",
+    "description": "Raion Community adalah salah satu Lembaga Semi Otonom (LSO) yang berada di lingkungan Fakultas Ilmu Komputer yang bergerak dibidang pengembangan mobile baik itu games maupun aplikasi",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#272381",
+    "theme_color": "#272381",
+    "icons": [
+        {
+            "src": "./assets/icon/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./assets/icon/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
