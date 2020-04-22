@@ -69,18 +69,22 @@ const main = document.getElementById('main-page');
 
 function changePage(index) {
     if (currentPoint === 0) {
-        logo.classList.remove('hide-bg')
+        logo.classList.remove('hide-bg');
         square.classList.add('hidden');
     } else if (index === 0) {
-        logo.classList.add('hide-bg')
+        logo.classList.add('hide-bg');
         square.classList.remove('hidden');
     }
 
     main.children[currentPoint].classList.remove('active');
     if (currentPoint < index) {
         main.children[currentPoint].classList.add('fade-up');
+        main.children[index].classList.add('fade-down');
+        main.children[index].classList.remove('fade-up');
     } else {
         main.children[currentPoint].classList.add('fade-down');
+        main.children[index].classList.add('fade-up');
+        main.children[index].classList.remove('fade-down');
     }
 
     setTimeout(() => {
