@@ -57,12 +57,14 @@ document.ontouchend = function(event) {
 }
 
 document.onkeydown = function(event) {
-    switch (event.which) {
-        case 38: // up
-            changeActivePoint(currentPoint - 1);
-            break;
-        case 40: // down
+    switch (event.key) {
+        case "Down":
+        case "ArrowDown":
             changeActivePoint(currentPoint + 1);
+            break;
+        case "Up":
+        case "ArrowUp":
+            changeActivePoint(currentPoint - 1);
             break;
         default: return;
     }
@@ -141,6 +143,7 @@ window.onhashchange = function() {
 
 function loadPage(page) {
     if (pageChanging) return;
+    closeSideNav();
     pageChanging = true;
 
     const pageContainer = document.getElementById('more-page');
@@ -157,6 +160,16 @@ function loadPage(page) {
         return;
     } else {
         isHome = false;
+    }
+
+    window.onkeydown = function(event) {
+        switch (event.key) {
+            case "Esc":
+            case "Escape":
+                window.location.href = '#home';
+                break;
+            default: return;
+        }
     }
 
     logo.classList.remove('hide-bg');

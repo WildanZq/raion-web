@@ -52,7 +52,7 @@
 }
 
 * {
-    font-family: CenturyGothicBold;
+    font-family: CenturyGothicBold, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -102,6 +102,25 @@ body.dark .shadow {
     top: -2vh;
     left: -2vw;
     transform: rotate(0) scale(1.1);
+}
+
+.has-square-right {
+    position: relative;
+    overflow: hidden;
+}
+
+.has-square-right::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 3rem;
+    background-image: var(--primary-gradient);
+    width: 60vw;
+    height: 55vh;
+    max-height: 200px;
+    transform: rotate(-20deg);
+    right: -42vw;
+    top: 0vh;
 }
 
 .page-wrapper {
@@ -282,8 +301,8 @@ body.dark .member-img {
     font-size: 1.8rem;
 }
 
-.thin, p {
-    font-family: CenturyGothic;
+.thin, p, li {
+    font-family: CenturyGothic, Arial, Helvetica, sans-serif;
 }
 
 .p-absolute {
@@ -457,6 +476,12 @@ footer {
     transition: transform .5s;
 }
 
+footer.normal {
+    position: initial;
+    transform: none;
+    margin-top: var(--v-spacing);
+}
+
 footer.show {
     transform: translateY(0);
 }
@@ -520,7 +545,6 @@ footer .icon-wrapper.youtube {
     overflow-x: hidden;
     background-color: var(--bg-color);
     padding-top: 8rem;
-    padding-bottom: var(--v-spacing);
     opacity: 0;
     transform: scale(1.4);
     transition: opacity .5s, transform .8s;
@@ -622,5 +646,10 @@ footer .icon-wrapper.youtube {
 
     .more-page {
         padding-top: 5rem;
+    }
+
+    .has-square-right::before {
+        max-height: 120px;
+        top: 10vh;
     }
 }
