@@ -150,7 +150,7 @@
                         <img class="ml-4 ml-md-5 pr-4 d-none d-md-block" src="./assets/img/product.svg" alt="Produk" width="100%">
                     </div>
                     <div class="col-md-8 d-flex align-items-center pr-4 pr-md-5">
-                        <div class="glide">
+                        <div class="glide glide-product">
                             <div class="glide__track" data-glide-el="track">
                                 <ul class="glide__slides mb-0">
                                     <li class="glide__slide product-card card">
@@ -284,14 +284,14 @@
     </div>
     <script src="./assets/js/glide.min.js"></script>
     <script>
-        new Glide('.glide', {
+        new Glide('.glide-product', {
             perView: window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3,
             bound: true,
             gap: 20,
         }).mount();
         window.onresize = function (event) {
             const width = event.target.innerWidth;
-            new Glide('.glide', {
+            new Glide('.glide-product', {
                 perView: width < 768 ? 1 : width < 992 ? 2 : 3,
                 bound: true,
                 gap: 20,

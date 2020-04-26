@@ -192,6 +192,34 @@ function loadPage(page) {
         if (this.readyState == 4) {
             if (this.status == 200) {
                 pageContainer.innerHTML = xhttp.responseText;
+                if (page === 'member') {
+                    const sliders = document.querySelectorAll('.glide-member');
+                    const conf = {
+                        perView: window.innerWidth < 768 ? 1.75 : window.innerWidth < 992 ? 3 : 4,
+                        bound: true,
+                        gap: 30,
+                    };
+                    sliders.forEach(item => {
+                        new Glide(item, conf).mount();
+                    });
+                    window.onresize = function (event) {
+                        const width = event.target.innerWidth;
+                        const sliders = document.querySelectorAll('.glide-member');
+                        const conf = {
+                            perView: width < 768 ? 1.75 : width < 992 ? 3 : 4,
+                            bound: true,
+                            gap: 30,
+                        };
+                        sliders.forEach(item => {
+                            new Glide(item, conf).mount();
+                        });
+                        new Glide('.glide-product', {
+                            perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+                            bound: true,
+                            gap: 20,
+                        }).mount();
+                    };
+                }
             } else if (this.status == 404) {
                 pageContainer.innerHTML = `
                     <div class="w-100 h-100 d-flex justify-content-center align-items-center">
