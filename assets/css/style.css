@@ -405,12 +405,12 @@ body.dark .logo {
     right: -1.6rem;
 }
 
-.glide-member .glide__arrow--left {
+.glide-normal .glide__arrow--left {
     left: -3.6rem;
     margin-top: -3rem;
 }
 
-.glide-member .glide__arrow--right {
+.glide-normal .glide__arrow--right {
     right: -3.6rem;
     margin-top: -3rem;
 }
@@ -458,6 +458,18 @@ body.dark .logo {
 
 .product-card .date {
     font-size: .6rem;
+}
+
+.product-img-banner {
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.product-ss {
+    height: 200px;
+    width: auto !important;
 }
 
 .contact .icon-wrapper {
@@ -672,6 +684,10 @@ footer .icon-wrapper.youtube {
         padding-top: 100%;
     }
 
+    .product-img-banner {
+        height: 240px;
+    }
+
     .btn {
         padding: .4rem 1.4rem;
         font-size: .8rem;
@@ -686,7 +702,7 @@ footer .icon-wrapper.youtube {
         top: 10vh;
     }
 
-    .glide-member .glide__slide:first-child {
+    .glide-normal .glide__slide:first-child {
         padding-left: 15px;
     }
 }

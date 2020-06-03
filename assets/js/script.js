@@ -133,15 +133,25 @@ let pageChanging = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     var page = window.location.hash.substr(1);
-    loadPage(page);
+    if (page.indexOf('/') !== -1) {
+        const pages = page.split('/');
+        loadPage(pages[0], pages[1]);
+    } else {
+        loadPage(page);
+    }
 });
 
 window.onhashchange = function() {
     var page = window.location.hash.substr(1);
-    loadPage(page);
+    if (page.indexOf('/') !== -1) {
+        const pages = page.split('/');
+        loadPage(pages[0], pages[1]);
+    } else {
+        loadPage(page);
+    }
 }
 
-function loadPage(page) {
+function loadPage(page, args) {
     if (pageChanging) return;
     closeSideNav();
     pageChanging = true;
@@ -149,7 +159,7 @@ function loadPage(page) {
     const pageContainer = document.getElementById('more-page');
     pageContainer.classList.remove('show');
     
-    if (page != 'member' && page != 'about') {
+    if (page != 'member' && page != 'about' && page != 'product') {
         isHome = true;
         changeActivePoint(currentPoint);
         setTimeout(() => {
@@ -220,6 +230,76 @@ function loadPage(page) {
                         }).mount();
                     };
                 }
+                if (page === 'product') {
+                    fetch('./db.json').then(r => r.json()).then(DATA => {
+                        const products = DATA.product;
+                        let product = findById(products, args);
+
+                        if (!product) {
+                            window.location.href = '#home';
+                        }
+
+                        const banner = document.getElementById('img-banner');
+                        banner.style.backgroundImage = product.img ? `url(./assets/img/product/${product.img})` : 'url(./assets/img/default.jpg)';
+                        if (!product.img) banner.classList.add('none');
+
+                        const name = document.getElementById('product-name');
+                        name.innerHTML = product.name;
+                        const desc = document.getElementById('product-desc');
+                        desc.innerHTML = product.desc;
+                        const team = document.getElementById('product-team');
+                        team.innerHTML = `Oleh: ${product.team}`;
+                        const link = document.getElementById('product-link');
+                        link.href = product.link ? product.link : '';
+
+                        const designer = document.getElementById('designer');
+                        product.designer.forEach(d => {
+                            let list = document.createElement('li');
+                            list.innerText = d;
+                            designer.appendChild(list);
+                        });
+                        const artist = document.getElementById('artist');
+                        product.artist.forEach(a => {
+                            let list = document.createElement('li');
+                            list.innerText = a;
+                            artist.appendChild(list);
+                        });
+                        const programmer = document.getElementById('programmer');
+                        product.programmer.forEach(p => {
+                            let list = document.createElement('li');
+                            list.innerText = p;
+                            programmer.appendChild(list);
+                        });
+                        
+                        const sliderList = document.getElementById('glide-product-list');
+                        product.screenshots.forEach(ss => {
+                            let img = document.createElement('img');
+                            img.classList.add('product-ss');
+                            img.classList.add('glide__slide');
+                            img.src = `./assets/img/product/${ss}`;
+                            sliderList.appendChild(img);
+                        });
+
+                        new Glide('.glide-ss', {
+                            perView: window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3,
+                            bound: true,
+                            gap: 20,
+                        }).mount();
+                        window.onresize = function (event) {
+                            const width = event.target.innerWidth;
+                            new Glide('.glide-ss', {
+                                perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+                                bound: true,
+                                gap: 20,
+                            }).mount();
+                            new Glide('.glide-product', {
+                                perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+                                bound: true,
+                                gap: 20,
+                            }).mount();
+                        };
+                    });
+                }
             } else if (this.status == 404) {
                 pageContainer.innerHTML = `
                     <div class="w-100 h-100 d-flex justify-content-center align-items-center">
@@ -237,4 +317,54 @@ function loadPage(page) {
     };
     xhttp.open("GET", page + ".html", true);
     xhttp.send();
+}
+
+// get product data
+fetch('./db.json').then(r => r.json()).then(DATA => {
+    const products = DATA.product;
+    const productWrapper = document.getElementById('product-wrapper');
+
+    let productList = '';
+    products.forEach(product => {
+        const img = product.img ? `./assets/img/product/${product.img}` : './assets/img/default.jpg';
+        productList += `
+        <li class="glide__slide product-card card">
+            <div class="card-header p-0">
+                <div class="product-img bg-cover w-100" style="background-image: url(${img});"></div>
+            </div>
+            <div class="card-body pt-3">
+                <h2 class="h5 text-truncate">${product.name}</h2>
+                <p class="text-truncate">${product.desc}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <span class="date text-${product.category === 'App'? 'success' : 'danger'}">${product.category}</span>
+                <a href="#product/${product.id}">More</a>
+            </div>
+        </li>
+        `;
+    });
+
+    productWrapper.innerHTML = productList;
+    new Glide('.glide-product', {
+        perView: window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3,
+        bound: true,
+        gap: 20,
+    }).mount();
+    window.onresize = function (event) {
+        const width = event.target.innerWidth;
+        new Glide('.glide-product', {
+            perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+            bound: true,
+            gap: 20,
+        }).mount();
+    };
+});
+
+// search json id
+function findById(data, idToLookFor) {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].id == idToLookFor) {
+            return (data[i]);
+        }
+    }
 }

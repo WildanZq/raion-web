@@ -1,0 +1,141 @@
+{
+    "product": [
+        {
+            "id": 1,
+            "img": "web-raion.png",
+            "name": "Website Raion",
+            "desc": "Website yang mempunyai fungsi untuk mempublikasi raion kepada seluruh masyarakat. ",
+            "category": "App",
+            "link": "http://raion.ub.ac.id",
+            "team": "Tim Raion",
+            "screenshots": [
+                "web-raion.png",
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ],
+            "designer": [
+                "Nama Designer"
+            ],
+            "artist": [
+                "Nama Artist",
+                "Nama Artist"
+            ],
+            "programmer": [
+                "Nama Programmer",
+                "Nama Programmer",
+                "Nama Programmer"
+            ]
+        },
+        {
+            "id": 2,
+            "img": null,
+            "name": "Produk Nomor Dua",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non urna sapien. Quisque sed volutpat massa, sed fermentum libero. Proin eu elementum mauris",
+            "category": "Game",
+            "link": "http://raion.ub.ac.id",
+            "team": "Tim Raion",
+            "screenshots": [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ],
+            "designer": [
+                "Nama Designer"
+            ],
+            "artist": [
+                "Nama Artist",
+                "Nama Artist"
+            ],
+            "programmer": [
+                "Nama Programmer",
+                "Nama Programmer"
+            ]
+        },
+        {
+            "id": 3,
+            "img": null,
+            "name": "Produk ke-3",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non urna sapien. Quisque sed volutpat massa, sed fermentum libero. Proin eu elementum mauris",
+            "category": "App",
+            "link": "http://raion.ub.ac.id",
+            "team": "Tim Raion",
+            "screenshots": [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ],
+            "designer": [
+                "Nama Designer"
+            ],
+            "artist": [
+                "Nama Artist",
+                "Nama Artist"
+            ],
+            "programmer": [
+                "Nama Programmer",
+                "Nama Programmer"
+            ]
+        },
+        {
+            "id": 4,
+            "img": null,
+            "name": "Produk Nomor Dua",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non urna sapien. Quisque sed volutpat massa, sed fermentum libero. Proin eu elementum mauris",
+            "category": "Game",
+            "link": "http://raion.ub.ac.id",
+            "team": "Tim Raion",
+            "screenshots": [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ],
+            "designer": [
+                "Nama Designer"
+            ],
+            "artist": [
+                "Nama Artist",
+                "Nama Artist"
+            ],
+            "programmer": [
+                "Nama Programmer",
+                "Nama Programmer"
+            ]
+        },
+        {
+            "id": 5,
+            "img": null,
+            "name": "Produk ke-3",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non urna sapien. Quisque sed volutpat massa, sed fermentum libero. Proin eu elementum mauris",
+            "category": "App",
+            "link": "http://raion.ub.ac.id",
+            "team": "Tim Raion",
+            "screenshots": [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg"
+            ],
+            "designer": [
+                "Nama Designer"
+            ],
+            "artist": [
+                "Nama Artist",
+                "Nama Artist"
+            ],
+            "programmer": [
+                "Nama Programmer",
+                "Nama Programmer"
+            ]
+        }
+    ]
+}
