@@ -1,4 +1,193 @@
 {
+    "member": {
+        "core": [
+            {
+                "title": "Ketua",
+                "name": "Mujiburrahman Haekal Fajry",
+                "img": "desainer/desainer game/DesignerGame_Mujiburrahman Haekal Fajry.jpg"
+            },
+            {
+                "title": "Wakil Ketua",
+                "name": "Nama Wakil",
+                "img": null
+            },
+            {
+                "title": "Administrasi",
+                "name": "Nama Lengkap",
+                "img": null
+            },
+            {
+                "title": "Bendahara",
+                "name": "Nama Lengkap",
+                "img": null
+            }
+        ],
+        "internal": [
+            {
+                "name": "Marketing",
+                "ketua": {
+                    "name": "Nama Ketua Divisi",
+                    "img": null
+                },
+                "anggota": [
+                    {
+                        "name": "Wildan Ziaulhaq",
+                        "img": "programmer/programmer app/wildan.png"
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    }
+                ]
+            },
+            {
+                "name": "Produksi",
+                "ketua": {
+                    "name": "Nama Ketua Divisi",
+                    "img": null
+                },
+                "anggota": [
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    }
+                ]
+            }
+        ],
+        "fungsional": [
+            {
+                "name": "Designer",
+                "ketua": {
+                    "name": "Nama Ketua Divisi",
+                    "img": null
+                },
+                "anggota": [
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    }
+                ]
+            },
+            {
+                "name": "Programmer",
+                "ketua": {
+                    "name": "Nama Ketua Divisi",
+                    "img": null
+                },
+                "anggota": [
+                    {
+                        "name": "Wildan Ziaulhaq",
+                        "img": "programmer/programmer app/wildan.png"
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    }
+                ]
+            },
+            {
+                "name": "Artist",
+                "ketua": {
+                    "name": "Nama Ketua Divisi",
+                    "img": null
+                },
+                "anggota": [
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    },
+                    {
+                        "name": "Nama Lengkap",
+                        "img": null
+                    }
+                ]
+            }
+        ]
+    },
     "product": [
         {
             "id": 1,
