@@ -9,12 +9,13 @@ if (!isset($_SESSION['login'])) {
 }
 
 if (isset($_POST['title']) && $_POST['title'] != "" && isset($_POST['content']) && $_POST['content'] != "") {
-    $title = $_POST['title'];
+    $title = mysqli_real_escape_string($connect, $_POST['title']);
     $content = trim($_POST['content']);
     $content = str_replace("\n", '<br/>', $content);
+    $content = mysqli_real_escape_string($connect, $content);
     $img = null;
     if (isset($_POST['img'])) {
-        $img = $_POST['img'];
+        $img = mysqli_real_escape_string($connect, $_POST['img']);
     }
 
     // check if url is image

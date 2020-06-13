@@ -147,7 +147,7 @@ function getAllBlog($connect) {
                 $username = $_SESSION['username'];
                 echo '
                 <button class="btn btn-secondary nav-item mx-1 shadow nav-user dropdown">
-                    <span>'.$username.' ▽</span>
+                    <span>'.$username.' ▼</span>
                     <div class="menu">
                         <a href="setting.php">Setting</a>
                         <a href="./php/auth/logout.php">Keluar</a>

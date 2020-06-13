@@ -57,17 +57,27 @@ function getBlog($connect) {
         if (isset($row['liked']) && $row['liked'] != '') {
             $heart = '♥';
         }
+        $heart_final = '<span class="card-heart">
+            <span class="icon">'.$heart.'</span>
+            <span class="count">'.$row['total_like'].'</span>
+        </span>';
+        if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
+            $heart_final = '<a href="./php/blog/toggle-like.php?id='.$row['id'].'" class="card-heart">
+                <span class="icon">'.$heart.'</span>
+                <span class="count">'.$row['total_like'].'</span>
+            </a>';
+        }
+        $delete = '';
+        if ($_SESSION['is_admin'] == '1') {
+            $delete = '<a class="btn btn-sm btn-danger mx-auto mt-4 d-block" href="./php/blog/delete-blog.php?id='.$row['id'].'">✖ Hapus</a>';
+        }
         $r = '';
 
         $r .= '
         <h1 class="mb-md-4 mb-3">'.$row['title'].'</h1>
         <h5 class="mb-md-4 mb-3 blog-detail">'.$name.' | '.$date.'</h5>
         <p>'.$row['content'].'</p>
-        <span class="card-heart">
-            <span class="icon">'.$heart.'</span>
-            <span class="count">'.$row['total_like'].'</span>
-        </span>
-        ';
+        '.$heart_final.$delete;
 
         return $r;
     } else {
@@ -159,6 +169,7 @@ function getRecommendation($connect) {
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/glide.core.min.css">
     <link rel="stylesheet" href="./assets/css/glide.theme.min.css">
+    <link rel="stylesheet" href="./assets/css/toastr.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -194,7 +205,7 @@ function getRecommendation($connect) {
                 $username = $_SESSION['username'];
                 echo '
                 <button class="btn btn-secondary nav-item mx-1 shadow nav-user dropdown">
-                    <span>'.$username.' ▽</span>
+                    <span>'.$username.' ▼</span>
                     <div class="menu">
                         <a href="setting.php">Setting</a>
                         <a href="./php/auth/logout.php">Keluar</a>
@@ -233,6 +244,16 @@ function getRecommendation($connect) {
             <a href="https://www.youtube.com/channel/UCM_KCSus8eODu2AlOMuIsrg" class="icon-wrapper mx-2 youtube"></a>
         </div>
     </footer>
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/toastr.min.js"></script>
+    <?php
+    if (isset($_SESSION['err_message'])) {
+        echo '<script>toastr.error("'.FlashMessage::get_err().'")</script>';
+    }
+    if (isset($_SESSION['success_message'])) {
+        echo '<script>toastr.success("'.FlashMessage::get_success().'")</script>';
+    }
+    ?>
 </body>
 </html>

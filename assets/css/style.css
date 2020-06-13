@@ -758,6 +758,12 @@ footer .icon-wrapper.youtube {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    transition: transform .5s;
+}
+
+.blog a.card-heart:hover {
+    text-decoration: none;
+    transform: scale(1.2);
 }
 
 .blog .card-heart .icon {
@@ -765,6 +771,7 @@ footer .icon-wrapper.youtube {
     height: 1rem;
     margin-top: -.8rem;
     color: red;
+    padding-right: .2rem;
 }
 
 .blog .card-heart .count {
