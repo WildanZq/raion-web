@@ -1,15 +1,4 @@
 'use strict';
-// mobile side navigation
-function toggleSideNav() {
-    document.getElementById('side-nav').classList.toggle('active');
-}
-
-function closeSideNav() {
-    document.getElementById('side-nav').classList.remove('active');
-}
-
-document.getElementById('nav-toggler').onclick = toggleSideNav;
-document.getElementById('side-nav-overlay').onclick = toggleSideNav;
 
 // page-wrapper control
 const point = document.getElementById('point');
@@ -133,6 +122,7 @@ let pageChanging = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     var page = window.location.hash.substr(1);
+    setNavIndicator(page);
     if (page.indexOf('/') !== -1) {
         const pages = page.split('/');
         loadPage(pages[0], pages[1]);
@@ -143,11 +133,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.onhashchange = function () {
     var page = window.location.hash.substr(1);
+    setNavIndicator(page);
     if (page.indexOf('/') !== -1) {
         const pages = page.split('/');
         loadPage(pages[0], pages[1]);
     } else {
         loadPage(page);
+    }
+}
+
+function setNavIndicator(page) {
+    const navs = document.getElementsByClassName('nav-item');
+    for (let i = 0; i < navs.length; i++) {
+        navs[i].classList.remove('active');
+    }
+    if (page === 'member') {
+        navs[1].classList.add('active');
+    } else if (page === 'about') {
+        navs[3].classList.add('active');
+    } else if (page !== 'product') {
+        navs[0].classList.add('active');
     }
 }
 

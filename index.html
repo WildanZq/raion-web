@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#272381">
-    <meta name="description" content="Raion Community adalah salah satu Lembaga Semi Otonom (LSO) yang berada di lingkungan Fakultas Ilmu Komputer yang bergerak dibidang pengembangan mobile baik itu games maupun aplikasi">
+    <meta name="description" content="Raion Community adalah salah satu Lembaga Semi Otonom (LSO) yang berada di lingkungan Fakultas Ilmu Komputer yang bergerak dibidang pengembangan games dan aplikasi mobile.">
     <title>Raion Community</title>
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="./assets/icon/favicon.png" type="image/x-icon">
@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="./assets/css/glide.theme.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="fixed"
     <a href="#home">
         <img class="logo hide-bg m-main p-fixed" src="./assets/icon/logo.png" alt="Logo" id="logo">
     </a>
     <div class="side-nav-wrapper d-block d-md-none" id="side-nav">
-        <div class="overlay" id="side-nav-overlay"></div>
         <div class="side-nav">
             <a href="#home" class="side-nav-item nav-home">Beranda</a>
             <a href="#member" class="side-nav-item">Anggota</a>
+            <a href="blog.html" class="side-nav-item">Blog</a>
             <a href="#about" class="side-nav-item">Tentang</a>
         </div>
     </div>
@@ -30,6 +30,7 @@
         <div class="d-none d-md-flex">
             <a href="#home" class="btn nav-item shadow mx-1 nav-home">Beranda</a>
             <a href="#member" class="btn nav-item shadow mx-1">Anggota</a>
+            <a href="blog.html" class="btn nav-item shadow mx-1">Blog</a>
             <a href="#about" class="btn nav-item shadow mx-1">Tentang Kami</a>
         </div>
         <button class="btn nav-item shadow navbar-light d-block d-md-none" id="nav-toggler">
@@ -186,6 +187,7 @@
         <div class="more-page hidden" id="more-page"></div>
     </div>
     <script src="./assets/js/glide.min.js"></script>
+    <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
