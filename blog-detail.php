@@ -1,5 +1,149 @@
 <?php
-session_start();
+require_once "./php/FlashMessage.php";
+require_once "./php/connect.php";
+
+function getBlogImg($connect) {
+    $query = "SELECT img FROM blog WHERE id = '".$_GET['id']."'";
+    $result = mysqli_query($connect, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $img = './assets/img/default.jpg';
+        if (isset($row['img']) && $row['img'] != '' && $row['img'] != null) {
+            $img = $row['img'];
+        }
+        return $img;
+    } else {
+        header('Location: blog.php');
+        die();
+    }
+}
+
+function getBlog($connect) {
+    $select_liked = '';
+    $join_liked = '';
+    if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
+        $select_liked = 'blog_like.blog AS liked,';
+        $join_liked = "LEFT JOIN blog_like ON blog_like.blog = blog.id AND blog_like.blog_user = '".$_SESSION['id']."'";
+    }
+
+    $query = "SELECT blog.id, title, img, content, created_at, name, $select_liked
+            CASE
+                WHEN likes.id IS NULL THEN 0
+                ELSE COUNT(*)
+            END AS total_like
+            FROM blog
+            JOIN blog_user ON blog_user.id = blog.blog_user
+            $join_liked
+            LEFT JOIN blog_like AS likes ON likes.blog = blog.id
+            WHERE blog.id = '".$_GET['id']."'
+            GROUP BY blog.id";
+    $result = mysqli_query($connect, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        $img = './assets/img/default.jpg';
+        if (isset($row['img']) && $row['img'] != '' && $row['img'] != null) {
+            $img = $row['img'];
+        }
+        $date = new DateTime($row['created_at']);
+        $date = $date->format('d M Y H:i');
+        $name = 'Deleted User';
+        if (isset($row['name']) && $row['name'] != '' && $row['name'] != null) {
+            $name = $row['name'];
+        }
+        $heart = '♡';
+        if (isset($row['liked']) && $row['liked'] != '') {
+            $heart = '♥';
+        }
+        $r = '';
+
+        $r .= '
+        <h1 class="mb-md-4 mb-3">'.$row['title'].'</h1>
+        <h5 class="mb-md-4 mb-3 blog-detail">'.$name.' | '.$date.'</h5>
+        <p>'.$row['content'].'</p>
+        <span class="card-heart">
+            <span class="icon">'.$heart.'</span>
+            <span class="count">'.$row['total_like'].'</span>
+        </span>
+        ';
+
+        return $r;
+    } else {
+        header('Location: blog.php');
+        die();
+    }
+}
+
+function getRecommendation($connect) {
+    $select_liked = '';
+    $join_liked = '';
+    if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
+        $select_liked = 'blog_like.blog AS liked,';
+        $join_liked = "LEFT JOIN blog_like ON blog_like.blog = blog.id AND blog_like.blog_user = '".$_SESSION['id']."'";
+    }
+
+    $query = "SELECT blog.id, title, img, content, created_at, name, $select_liked
+            CASE
+                WHEN likes.id IS NULL THEN 0
+                ELSE COUNT(*)
+            END AS total_like
+            FROM blog
+            JOIN blog_user ON blog_user.id = blog.blog_user
+            $join_liked
+            LEFT JOIN blog_like AS likes ON likes.blog = blog.id
+            GROUP BY blog.id
+            ORDER BY created_at DESC LIMIT 3";
+    $result = mysqli_query($connect, $query);
+
+    $r = '';
+    if($result) {
+        if(mysqli_num_rows($result)) {
+            while($row = mysqli_fetch_assoc($result)) {
+                $date = new DateTime($row['created_at']);
+                $date = $date->format('d M Y');
+                $img = './assets/img/default.jpg';
+                if (isset($row['img']) && $row['img'] != '' && $row['img'] != null) {
+                    $img = $row['img'];
+                }
+                $name = 'Deleted User';
+                if (isset($row['name']) && $row['name'] != '' && $row['name'] != null) {
+                    $name = $row['name'];
+                }
+                $heart = '♡';
+                if (isset($row['liked']) && $row['liked'] != '') {
+                    $heart = '♥';
+                }
+                $r .= '
+                <a href="blog-detail.php?id='.$row['id'].'" class="card shadow">
+                    <img class="card-img-top" src="'.$img.'" alt="Banner Artikel">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h2 class="h5 card-title text-truncate">'.$row['title'].'</h2>
+                            <span class="card-heart">
+                                <span class="icon">'.$heart.'</span>
+                                <span class="count">'.$row['total_like'].'</span>
+                            </span>
+                        </div>
+                        <div class="card-label">
+                            <span>'.$name.'</span>
+                            <span>'.$date.'</span>
+                        </div>
+                        <div class="text-truncate card-desc">
+                            <p>'.$row['content'].'</p>
+                        </div>
+                    </div>
+                </a>
+                ';
+            }
+        }
+    } else {
+        return false;
+    }
+
+    return $r;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,89 +210,16 @@ session_start();
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <img class="blog-banner" src="./assets/img/default.jpg" alt="Banner Artikel">
+    <img class="blog-banner" src="<?php echo getBlogImg($connect); ?>" alt="Banner Artikel">
     <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 mt-5 blog">
         <div class="row">
             <div class="col-md-9 content">
-                <h1 class="mb-md-4 mb-3">Judul Artikel oia wdoia oiae foaei nfoiae nfoiae ofai neof naeoif aoe foeian foian e</h1>
-                <h5 class="mb-md-4 mb-3 blog-detail">Nama Penulis | 20 Juni 2020</h5>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dignissimos, recusandae error facilis ea pariatur, ab dolores tempore libero similique eos unde saepe totam deserunt earum ad maxime dolore illo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci sapiente quis commodi iusto nulla nam voluptas, quae hic porro ratione, labore animi numquam similique, fuga nesciunt aspernatur suscipit! Eius, voluptates! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla natus autem reiciendis error tempora hic, nam, aut cumque eos quod asperiores. Tenetur in sed, eveniet eum ad consequatur itaque explicabo.</p>
-                <span class="card-heart">
-                    <span class="icon">♡</span>
-                    <span class="count">12</span>
-                </span>
+                <?php echo getBlog($connect); ?>
             </div>
             <div class="col-md-3 mt-4 mt-md-0 p-relative">
                 <div class="p-sticky blog-suggestion">
                     <h2 class="sub-title thin mb-3 mb-md-4">Terbaru</h2>
-                    <a href="blog-detail.php" class="card shadow">
-                        <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                <span class="card-heart">
-                                    <span class="icon">♡</span>
-                                    <span class="count">12</span>
-                                </span>
-                            </div>
-                            <div class="card-label">
-                                <span>Nama Penulis</span>
-                                <span>20 Juni 2020</span>
-                            </div>
-                            <div class="text-truncate card-desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                    quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                    placeat at rem molestiae alias nihil.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="blog-detail.php" class="card shadow">
-                        <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                <span class="card-heart">
-                                    <span class="icon">♡</span>
-                                    <span class="count">12</span>
-                                </span>
-                            </div>
-                            <div class="card-label">
-                                <span>Nama Penulis</span>
-                                <span>20 Juni 2020</span>
-                            </div>
-                            <div class="text-truncate card-desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                    quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                    placeat at rem molestiae alias nihil.</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="blog-detail.php" class="card shadow">
-                        <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                <span class="card-heart">
-                                    <span class="icon">♡</span>
-                                    <span class="count">12</span>
-                                </span>
-                            </div>
-                            <div class="card-label">
-                                <span>Nama Penulis</span>
-                                <span>20 Juni 2020</span>
-                            </div>
-                            <div class="text-truncate card-desc">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                    quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                    placeat at rem molestiae alias nihil.</p>
-                            </div>
-                        </div>
-                    </a>
+                    <?php echo getRecommendation($connect); ?>
                 </div>
             </div>
         </div>

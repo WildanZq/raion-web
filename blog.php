@@ -1,5 +1,101 @@
 <?php
-session_start();
+require_once "./php/FlashMessage.php";
+require_once "./php/connect.php";
+
+function getAllBlog($connect) {
+    $select_liked = '';
+    $join_liked = '';
+    if (isset($_SESSION['id']) && $_SESSION['id'] != '') {
+        $select_liked = 'blog_like.blog AS liked,';
+        $join_liked = "LEFT JOIN blog_like ON blog_like.blog = blog.id AND blog_like.blog_user = '".$_SESSION['id']."'";
+    }
+
+    $query = "SELECT blog.id, title, img, content, created_at, name, $select_liked
+            CASE
+                WHEN likes.id IS NULL THEN 0
+                ELSE COUNT(*)
+            END AS total_like
+            FROM blog
+            JOIN blog_user ON blog_user.id = blog.blog_user
+            $join_liked
+            LEFT JOIN blog_like AS likes ON likes.blog = blog.id
+            GROUP BY blog.id
+            ORDER BY created_at DESC";
+    $result = mysqli_query($connect, $query);
+
+    $r = '';
+    if($result) {
+        if($total_row = mysqli_num_rows($result)) {
+            $count = 0;
+            while($row = mysqli_fetch_assoc($result)) {
+                $count++;
+                $date = new DateTime($row['created_at']);
+                $date = $date->format('d M Y');
+                $class = 'col-lg-3 col-md-4 col-sm-6';
+                $big = '';
+                $img = './assets/img/default.jpg';
+                if (isset($row['img']) && $row['img'] != '' && $row['img'] != null) {
+                    $img = $row['img'];
+                }
+                $name = 'Deleted User';
+                if (isset($row['name']) && $row['name'] != '' && $row['name'] != null) {
+                    $name = $row['name'];
+                }
+                $heart = '♡';
+                if (isset($row['liked']) && $row['liked'] != '') {
+                    $heart = '♥';
+                }
+                if ($total_row >= 5) {
+                    if ($count == 1) {
+                        $class = 'col-md-5';
+                        $big = 'big';
+                    }
+                    if ($count == 2) {
+                        $r .= '<div class="col-md-7"><div class="row">';
+                    }
+                    if ($count >= 2 && $count <= 5) {
+                        $class = 'col-sm-6';
+                    }
+                }
+                $r .= '
+                <div class="'.$class.'">
+                    <a href="blog-detail.php?id='.$row['id'].'" class="card shadow '.$big.'">
+                        <img class="card-img-top" src="'.$img.'" alt="Banner Artikel">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h2 class="h5 card-title text-truncate">'.$row['title'].'</h2>
+                                <span class="card-heart">
+                                    <span class="icon">'.$heart.'</span>
+                                    <span class="count">'.$row['total_like'].'</span>
+                                </span>
+                            </div>
+                            <div class="card-label">
+                                <span>'.$name.'</span>
+                                <span>'.$date.'</span>
+                            </div>
+                            <div class="text-truncate card-desc">
+                                <p>'.$row['content'].'</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                ';
+                if ($total_row >= 5) {
+                    if ($count == 3) {
+                        $r .= '</div><div class="row">';
+                    }
+                    if ($count == 5) {
+                        $r .= '</div></div>';
+                    }
+                }
+            }
+        }
+    } else {
+        return false;
+    }
+
+    return $r;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +111,7 @@ session_start();
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/glide.core.min.css">
     <link rel="stylesheet" href="./assets/css/glide.theme.min.css">
+    <link rel="stylesheet" href="./assets/css/toastr.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -69,125 +166,7 @@ session_start();
     <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 mt-5 pt-5 blog">
         <h1 class="sub-title thin mb-3 mb-md-4 mt-md-4 pt-md-4">Terbaru</h1>
         <div class="row">
-            <div class="col-md-5">
-                <a href="blog-detail.php" class="card shadow big">
-                    <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <h2 class="h5 card-title text-truncate">Judul Artikel oia foiae aoeif aoeif aeoi faeif haeofiae fa</h2>
-                            <span class="card-heart">
-                                <span class="icon">♡</span>
-                                <span class="count">12</span>
-                            </span>
-                        </div>
-                        <div class="card-label">
-                            <span>Nama Penulis</span>
-                            <span>20 Juni 2020</span>
-                        </div>
-                        <div class="text-truncate card-desc">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam placeat at rem molestiae alias nihil. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium in rerum maiores quaerat at voluptatum provident iste reprehenderit dicta eveniet quae soluta eum aut fuga possimus blanditiis vitae, fugiat explicabo!</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="blog-detail.php" class="card shadow">
-                            <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                    <span class="card-heart">
-                                        <span class="icon">♥</span>
-                                        <span class="count">12</span>
-                                    </span>
-                                </div>
-                                <div class="card-label">
-                                    <span>Nama Penulis</span>
-                                    <span>20 Juni 2020</span>
-                                </div>
-                                <div class="text-truncate card-desc">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                        quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                        placeat at rem molestiae alias nihil.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="blog-detail.php" class="card shadow">
-                            <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                    <span class="card-heart">
-                                        <span class="icon">♡</span>
-                                        <span class="count">12</span>
-                                    </span>
-                                </div>
-                                <div class="card-label">
-                                    <span>Nama Penulis</span>
-                                    <span>20 Juni 2020</span>
-                                </div>
-                                <div class="text-truncate card-desc">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                        quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                        placeat at rem molestiae alias nihil.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="blog-detail.php" class="card shadow">
-                            <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                    <span class="card-heart">
-                                        <span class="icon">♡</span>
-                                        <span class="count">12</span>
-                                    </span>
-                                </div>
-                                <div class="card-label">
-                                    <span>Nama Penulis</span>
-                                    <span>20 Juni 2020</span>
-                                </div>
-                                <div class="text-truncate card-desc">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                        quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                        placeat at rem molestiae alias nihil.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="blog-detail.php" class="card shadow">
-                            <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h2 class="h5 card-title text-truncate">Judul Artikel</h2>
-                                    <span class="card-heart">
-                                        <span class="icon">♡</span>
-                                        <span class="count">12</span>
-                                    </span>
-                                </div>
-                                <div class="card-label">
-                                    <span>Nama Penulis</span>
-                                    <span>20 Juni 2020</span>
-                                </div>
-                                <div class="text-truncate card-desc">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos beatae obcaecati
-                                        quisquam nobis, recusandae ducimus! Voluptatum, deleniti cum quia enim, aliquid commodi quibusdam
-                                        placeat at rem molestiae alias nihil.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <?php echo getAllBlog($connect); ?>
         </div>
     </div>
     <footer class="normal bg-primary d-flex justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row text-white">
@@ -199,6 +178,16 @@ session_start();
             <a href="https://www.youtube.com/channel/UCM_KCSus8eODu2AlOMuIsrg" class="icon-wrapper mx-2 youtube"></a>
         </div>
     </footer>
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/toastr.min.js"></script>
+    <?php
+    if (isset($_SESSION['err_message'])) {
+        echo '<script>toastr.error("'.FlashMessage::get_err().'")</script>';
+    }
+    if (isset($_SESSION['success_message'])) {
+        echo '<script>toastr.success("'.FlashMessage::get_success().'")</script>';
+    }
+    ?>
 </body>
 </html>

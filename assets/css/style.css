@@ -75,7 +75,7 @@ body.dark .shadow {
     box-shadow: 0 .5rem 1rem rgba(255,255,255,.03)!important;
 }
 
-label, td {
+label, td, textarea, .toast-message {
     font-family: CenturyGothic;
 }
 
@@ -728,8 +728,8 @@ footer .icon-wrapper.youtube {
 .width-controller {
     max-width: 1312px;
     margin: auto;
-    min-height: 100vh;
-    min-height: calc(100vh - 10rem);
+    min-height: 95vh;
+    min-height: calc(100vh - 9rem);
 }
 
 .blog .card-img-top {

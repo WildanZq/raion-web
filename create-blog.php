@@ -1,44 +1,9 @@
 <?php
 require_once "./php/FlashMessage.php";
-require_once "./php/connect.php";
 
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != '1') {
+if (!isset($_SESSION['login'])) {
     header('Location: login.php');
     die();
-}
-
-function getAllUser($connect) {
-    $query = "SELECT * FROM blog_user";
-    $result = mysqli_query($connect, $query);
-    $r = '';
-    if($result) {
-        if(mysqli_num_rows($result)) {
-            while($row = mysqli_fetch_assoc($result)) {
-                $r .= '<tr>';
-                $r .= "<td>{$row['name']}</td>";
-                $r .= "<td>{$row['username']}</td>";
-
-                $is_admin = '';
-                if ($row['is_admin'] == '1') {
-                    $is_admin = 'active';
-                }
-                $r .= '<td>
-                <a class="toggler '.$is_admin.'" href="./php/user/toggle-level.php?id='.$row['id'].'"></a>
-                </td>';
-
-                if ($row['id'] == $_SESSION['id']) {
-                    $r .= "<td>This is you</td>";
-                } else {
-                    $r .= '<td><a class="btn btn-danger btn-sm" href="./php/user/delete-user.php?id='.$row['id'].'">✖ Hapus</a></td>';
-                }
-                $r .= '</tr>';
-            }
-        }
-    } else {
-        return false;
-    }
-
-    return $r;
 }
 ?>
 <!DOCTYPE html>
@@ -56,7 +21,6 @@ function getAllUser($connect) {
     <link rel="stylesheet" href="./assets/css/glide.core.min.css">
     <link rel="stylesheet" href="./assets/css/glide.theme.min.css">
     <link rel="stylesheet" href="./assets/css/toastr.min.css">
-    <link rel="stylesheet" href="./assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -99,28 +63,26 @@ function getAllUser($connect) {
         </button>
     </nav>
     <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
-        <a href="create-user.php" class="btn btn-secondary mt-5">+ Tambah User</a>
-        <div class="card mt-3">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="user-table" class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Username</th>
-                                <th>Admin?</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            echo getAllUser($connect);
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+        <form action="./php/blog/create-blog.php" method="POST" class="mt-5">
+            <div class="form-group">
+                <label for="title">Judul Artikel</label>
+                <input type="text" name="title" class="form-control" id="title" maxlength="100">
             </div>
-        </div>
+            <div class="form-group">
+                <label for="img">URL Gambar</label>
+                <input type="text" name="img" class="form-control" id="img" maxlength="200">
+                <small id="emailHelp" class="form-text text-muted">Opsional, pastikan URL gambar bisa diakses secara langsung (supported file format: .jpg/.jpeg/.png/.bmp/.gif/.svg)</small>
+            </div>
+            <div class="form-group">
+                <label for="content">Konten</label>
+                <textarea name="content" id="content" rows="10" class="form-control"></textarea>
+                <small id="emailHelp" class="form-text text-muted">Klik enter 2x untuk jarak paragraf yang ideal</small>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-secondary" type="submit">Simpan</button>
+                <a href="./blog.php" class="text-default px-5 py-2">Batal</a>
+            </div>
+        </form>
     </div>
     <footer class="normal bg-primary d-flex justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row text-white mt-5">
         <p class="mb-0 text-center text-md-left">Developed by Marketing Raion Community 2020</p>
@@ -134,12 +96,8 @@ function getAllUser($connect) {
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/toastr.min.js"></script>
-    <script src="./assets/js/jquery.dataTables.min.js"></script>
-    <script src="./assets/js/dataTables.bootstrap4.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#user-table').DataTable();
-        });
+        toastr.warning('Tulis artikelmu di word terlebih dahulu untuk backup jika terjadi masalah', 'Perhatian!');
     </script>
     <?php
     if (isset($_SESSION['err_message'])) {
