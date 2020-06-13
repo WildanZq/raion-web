@@ -75,6 +75,10 @@ body.dark .shadow {
     box-shadow: 0 .5rem 1rem rgba(255,255,255,.03)!important;
 }
 
+label {
+    font-family: CenturyGothic;
+}
+
 .square-wrapper {
     width: 100%;
     height: 100vh;
@@ -178,12 +182,27 @@ body.dark .shadow {
     z-index: 10;
 }
 
+.nav-item.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.nav-item.btn-secondary.dropdown {
+    overflow: visible;
+}
+
+.nav-item.btn-secondary.dropdown:hover {
+    filter: none;
+}
+
 .side-nav-wrapper {
-    position: absolute;
+    position: fixed;
     z-index: 9;
     width: 100%;
     height: 0;
     right: 0;
+    top: 0;
     transition: height .5s;
     overflow: hidden;
 }
@@ -646,6 +665,10 @@ footer .icon-wrapper.youtube {
     color: var(--primary-color) !important;
 }
 
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
 .bg-primary {
     background-image: var(--primary-gradient);
 }
@@ -745,6 +768,56 @@ footer .icon-wrapper.youtube {
 
 .blog-suggestion {
     top: calc(var(--v-spacing) * 3);
+}
+
+.blog .content p:first-of-type::first-letter {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+.login {
+    height: 100vh;
+}
+
+.login .card {
+    border-radius: .6rem;
+    width: 90%;
+    max-width: 400px;
+}
+
+.nav-user {
+    position: relative;
+}
+
+.nav-user .menu {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.nav-user:hover .menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-user .menu a {
+    display: block;
+    padding: .4rem 1rem;
+    background-color: white;
+    filter: none;
+    color: var(--primary-color);
+}
+
+.nav-user .menu a:first-child {
+    margin-top: .6rem;
+    border-radius: .4rem .4rem 0 0;
+}
+
+.nav-user .menu a:last-child {
+    border-radius: 0 0 .4rem .4rem;
 }
 
 @media screen and (max-width: 767px) {

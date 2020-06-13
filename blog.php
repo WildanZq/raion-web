@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +25,42 @@
         <div class="side-nav">
             <a href="index.html#home" class="side-nav-item nav-home">Beranda</a>
             <a href="index.html#member" class="side-nav-item">Anggota</a>
-            <a href="blog.html" class="side-nav-item active">Blog</a>
+            <a href="blog.php" class="side-nav-item active">Blog</a>
             <a href="index.html#about" class="side-nav-item">Tentang</a>
+            <?php
+            if (isset($_SESSION['login'])) {
+                echo '<a href="create-blog.php" class="side-nav-item text-primary">Tulis Artikel</a>';
+                echo '<a href="setting.php" class="side-nav-item text-primary">Setting</a>';
+                echo '<a href="./php/logout.php" class="side-nav-item text-primary">Keluar</a>';
+            } else {
+                echo '<a href="login.php" class="side-nav-item text-primary">Masuk</a>';
+            }
+            ?>
         </div>
     </div>
     <nav class="p-fixed nav-wrapper">
         <div class="d-none d-md-flex">
             <a href="index.html#home" class="btn nav-item shadow mx-1 nav-home">Beranda</a>
             <a href="index.html#member" class="btn nav-item shadow mx-1">Anggota</a>
-            <a href="blog.html" class="btn nav-item shadow mx-1 active">Blog</a>
+            <a href="blog.php" class="btn nav-item shadow mx-1 active">Blog</a>
             <a href="index.html#about" class="btn nav-item shadow mx-1">Tentang Kami</a>
+            <?php
+            if (isset($_SESSION['login'])) {
+                echo '<a href="create-blog.php" class="btn nav-item shadow mx-1 btn-secondary">Tulis Artikel</a>';
+                $username = $_SESSION['username'];
+                echo '
+                <button class="btn btn-secondary nav-item mx-1 shadow nav-user dropdown">
+                    <span>'.$username.' ▽</span>
+                    <div class="menu">
+                        <a href="setting.php">Setting</a>
+                        <a href="./php/logout.php">Logout</a>
+                    </div>
+                </button>
+                ';
+            } else {
+                echo '<a href="login.php" class="btn nav-item shadow mx-1 btn-secondary">Masuk</a>';
+            }
+            ?>
         </div>
         <button class="btn nav-item shadow navbar-light d-block d-md-none" id="nav-toggler">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +70,7 @@
         <h1 class="sub-title thin mb-3 mb-md-4 mt-md-4 pt-md-4">Terbaru</h1>
         <div class="row">
             <div class="col-md-5">
-                <a href="blog-detail.html" class="card shadow big">
+                <a href="blog-detail.php" class="card shadow big">
                     <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
@@ -64,7 +93,7 @@
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="blog-detail.html" class="card shadow">
+                        <a href="blog-detail.php" class="card shadow">
                             <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -87,7 +116,7 @@
                         </a>
                     </div>
                     <div class="col-sm-6">
-                        <a href="blog-detail.html" class="card shadow">
+                        <a href="blog-detail.php" class="card shadow">
                             <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -112,7 +141,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <a href="blog-detail.html" class="card shadow">
+                        <a href="blog-detail.php" class="card shadow">
                             <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -135,7 +164,7 @@
                         </a>
                     </div>
                     <div class="col-sm-6">
-                        <a href="blog-detail.html" class="card shadow">
+                        <a href="blog-detail.php" class="card shadow">
                             <img class="card-img-top" src="./assets/img/default.jpg" alt="Banner Artikel">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
