@@ -1,44 +1,9 @@
 <?php
 require_once "./php/FlashMessage.php";
-require_once "./php/connect.php";
 
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != '1') {
     header('Location: login.php');
     die();
-}
-
-function getAllUser($connect) {
-    $query = "SELECT * FROM blog_user";
-    $result = mysqli_query($connect, $query);
-    $r = '';
-    if($result) {
-        if(mysqli_num_rows($result)) {
-            while($row = mysqli_fetch_assoc($result)) {
-                $r .= '<tr>';
-                $r .= "<td>{$row['name']}</td>";
-                $r .= "<td>{$row['username']}</td>";
-
-                $is_admin = '';
-                if ($row['is_admin'] == '1') {
-                    $is_admin = 'active';
-                }
-                $r .= '<td>
-                <a class="toggler '.$is_admin.'" href="./php/user/toggle-level.php?id='.$row['id'].'"></a>
-                </td>';
-
-                if ($row['id'] == $_SESSION['id']) {
-                    $r .= "<td>This is you</td>";
-                } else {
-                    $r .= '<td><a class="btn btn-danger btn-sm" href="./php/user/delete-user.php?id='.$row['id'].'">✖ Hapus</a></td>';
-                }
-                $r .= '</tr>';
-            }
-        }
-    } else {
-        return false;
-    }
-
-    return $r;
 }
 ?>
 <!DOCTYPE html>
@@ -56,7 +21,6 @@ function getAllUser($connect) {
     <link rel="stylesheet" href="./assets/css/glide.core.min.css">
     <link rel="stylesheet" href="./assets/css/glide.theme.min.css">
     <link rel="stylesheet" href="./assets/css/toastr.min.css">
-    <link rel="stylesheet" href="./assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -98,25 +62,33 @@ function getAllUser($connect) {
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
-        <a href="create-user.php" class="btn btn-secondary mt-5">+ Tambah User</a>
-        <div class="card mt-3">
+    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 d-flex justify-content-center align-items-center login">
+        <div class="card">
             <div class="card-body">
-                <table id="user-table" class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Username</th>
-                            <th>Admin?</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        echo getAllUser($connect);
-                        ?>
-                    </tbody>
-                </table>
+                <h1 class="h4 mb-3 text-center text-primary">Tambah User</h1>
+                <form action="./php/user/create-user.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input class="form-control" type="text" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" type="text" name="username" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" name="password" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="is_admin">Level</label>
+                        <select class="form-control" name="is_admin" id="is_admin">
+                            <option value="0">Default</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-secondary w-100" type="submit">Tambah</button>
+                    <a href="./admin.php" class="w-100 text-default text-center d-block py-2">Batal</a>
+                </form>
             </div>
         </div>
     </div>
@@ -132,13 +104,6 @@ function getAllUser($connect) {
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/toastr.min.js"></script>
-    <script src="./assets/js/jquery.dataTables.min.js"></script>
-    <script src="./assets/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#user-table').DataTable();
-        });
-    </script>
     <?php
     if (isset($_SESSION['err_message'])) {
         echo '<script>toastr.error("'.FlashMessage::get_err().'")</script>';

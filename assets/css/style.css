@@ -75,7 +75,7 @@ body.dark .shadow {
     box-shadow: 0 .5rem 1rem rgba(255,255,255,.03)!important;
 }
 
-label {
+label, td {
     font-family: CenturyGothic;
 }
 
@@ -420,11 +420,48 @@ body.dark .logo {
     align-items: center;
 }
 
+.toggler {
+    position: relative;
+    display: block;
+    width: 2.4rem;
+    height: 1.4rem;
+    border-radius: 2rem;
+    background-color: red;
+}
+
+.toggler.active {
+    background-color: green;
+}
+
+.toggler::after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 1rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: white;
+    border: 2px solid red;
+    top: 0;
+    left: 0;
+    right: auto;
+}
+
+.toggler.active::after {
+    border-color: green;
+    right: 0;
+    left: auto;
+}
+
 .btn {
     outline: none;
     border: none;
     padding: .5rem 2rem;
     transition: filter .5s, transform .5s, background-color .5s;
+}
+
+.btn.btn-sm {
+    padding: .25rem .5rem;
 }
 
 .btn:hover {
@@ -669,6 +706,10 @@ footer .icon-wrapper.youtube {
     color: var(--secondary-color) !important;
 }
 
+.text-default {
+    color: var(--text-color);
+}
+
 .bg-primary {
     background-image: var(--primary-gradient);
 }
@@ -687,6 +728,8 @@ footer .icon-wrapper.youtube {
 .width-controller {
     max-width: 1312px;
     margin: auto;
+    min-height: 100vh;
+    min-height: calc(100vh - 10rem);
 }
 
 .blog .card-img-top {

@@ -31,7 +31,7 @@ session_start();
             if (isset($_SESSION['login'])) {
                 echo '<a href="create-blog.php" class="side-nav-item text-primary">Tulis Artikel</a>';
                 echo '<a href="setting.php" class="side-nav-item text-primary">Setting</a>';
-                echo '<a href="./php/logout.php" class="side-nav-item text-primary">Keluar</a>';
+                echo '<a href="./php/auth/logout.php" class="side-nav-item text-primary">Keluar</a>';
             } else {
                 echo '<a href="login.php" class="side-nav-item text-primary">Masuk</a>';
             }
@@ -53,7 +53,7 @@ session_start();
                     <span>'.$username.' ▽</span>
                     <div class="menu">
                         <a href="setting.php">Setting</a>
-                        <a href="./php/logout.php">Logout</a>
+                        <a href="./php/auth/logout.php">Keluar</a>
                     </div>
                 </button>
                 ';

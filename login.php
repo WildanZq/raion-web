@@ -52,7 +52,7 @@ if (isset($_SESSION['login'])) {
         <div class="card">
             <div class="card-body">
                 <h1 class="h4 mb-3 text-center text-primary">Masuk</h1>
-                <form action="./php/login.php" method="POST">
+                <form action="./php/auth/login.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input class="form-control" type="text" name="username" id="username" required>

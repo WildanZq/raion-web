@@ -1,10 +1,10 @@
 <?php
-require_once "./connect.php";
-require_once "./FlashMessage.php";
+require_once "../connect.php";
+require_once "../FlashMessage.php";
 session_start();
 
 if (isset($_SESSION['login'])) {
-    header('Location: ../blog.php');
+    header('Location: ../../blog.php');
     die();
 }
 
@@ -31,20 +31,21 @@ if (isset($_POST['username']) && $_POST['username'] != "" && isset($_POST['passw
             $_SESSION['username'] = $username;
             $_SESSION['is_admin'] = $is_admin;
             
-            header('Location: ../blog.php');
+            header('Location: ../../blog.php');
             die();
         } else {
             FlashMessage::set_err('Password salah');
-            header('Location: ../login.php');
+            header('Location: ../../login.php');
             die();
         }
     } else {
         FlashMessage::set_err('Username tidak ditemukan');
-        header('Location: ../login.php');
+        header('Location: ../../login.php');
         die();
     }
 } else {
     FlashMessage::set_err('Masukkan semua data');
-    header('Location: ../login.php');
+    header('Location: ../../login.php');
+    die();
 }
 ?>

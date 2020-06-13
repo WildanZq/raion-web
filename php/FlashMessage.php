@@ -13,4 +13,17 @@ class FlashMessage {
     public static function set_err($message) {
         $_SESSION['err_message'] = $message;
     }
+
+    public static function get_success() {
+        if (!isset($_SESSION['success_message'])) {
+            return null;
+        }
+        $messages = $_SESSION['success_message'];
+        unset($_SESSION['success_message']);
+        return $messages;
+    }
+
+    public static function set_success($message) {
+        $_SESSION['success_message'] = $message;
+    }
 }
