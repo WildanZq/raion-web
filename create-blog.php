@@ -66,7 +66,7 @@ if (!isset($_SESSION['login'])) {
         <form action="./php/blog/create-blog.php" method="POST" class="mt-5">
             <div class="form-group">
                 <label for="title">Judul Artikel</label>
-                <input type="text" name="title" class="form-control" id="title" maxlength="100">
+                <input type="text" name="title" class="form-control" id="title" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="img">URL Gambar</label>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['login'])) {
             </div>
             <div class="form-group">
                 <label for="content">Konten</label>
-                <textarea name="content" id="content" rows="10" class="form-control"></textarea>
+                <textarea name="content" id="content" rows="10" class="form-control" required></textarea>
                 <small id="emailHelp" class="form-text text-muted">Klik enter 2x untuk jarak paragraf yang ideal</small>
             </div>
             <div class="d-flex align-items-center">

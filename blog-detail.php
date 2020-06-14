@@ -69,7 +69,7 @@ function getBlog($connect) {
         }
         $delete = '';
         if ($_SESSION['is_admin'] == '1') {
-            $delete = '<a class="btn btn-sm btn-danger mx-auto mt-4 d-block" href="./php/blog/delete-blog.php?id='.$row['id'].'">✖ Hapus</a>';
+            $delete = '<button class="btn btn-sm btn-danger mx-auto mt-4 d-block" onclick="redirectTo(\'./php/blog/delete-blog.php?id='.$row['id'].'\')">✖ Hapus</button>';
         }
         $r = '';
 
@@ -247,6 +247,13 @@ function getRecommendation($connect) {
     <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/nav.js"></script>
     <script src="./assets/js/toastr.min.js"></script>
+    <script>
+        function redirectTo(path) {
+            if (confirm('Hapus Blog ini?')) {
+                window.location = path;
+            }
+        }
+    </script>
     <?php
     if (isset($_SESSION['err_message'])) {
         echo '<script>toastr.error("'.FlashMessage::get_err().'")</script>';

@@ -29,7 +29,7 @@ function getAllUser($connect) {
                 if ($row['id'] == $_SESSION['id']) {
                     $r .= "<td>This is you</td>";
                 } else {
-                    $r .= '<td><a class="btn btn-danger btn-sm" href="./php/user/delete-user.php?id='.$row['id'].'">✖ Hapus</a></td>';
+                    $r .= '<td><button class="btn btn-danger btn-sm" onclick="redirectTo(\'./php/user/delete-user.php?id='.$row['id'].'\')">✖ Hapus</button></td>';
                 }
                 $r .= '</tr>';
             }
@@ -140,6 +140,12 @@ function getAllUser($connect) {
         $(document).ready(function() {
             $('#user-table').DataTable();
         });
+
+        function redirectTo(path) {
+            if (confirm('Hapus User?')) {
+                window.location = path;
+            }
+        }
     </script>
     <?php
     if (isset($_SESSION['err_message'])) {
