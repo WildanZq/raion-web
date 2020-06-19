@@ -8,17 +8,17 @@
             },
             {
                 "title": "Wakil Ketua",
-                "name": "Nama Wakil",
-                "img": null
+                "name": "Naufal Afif Bunyamin",
+                "img": "programmer/programmer app/programmerApps_Naufal Afif.jpg"
             },
             {
                 "title": "Administrasi",
-                "name": "Nama Lengkap",
-                "img": null
+                "name": "Bella Rhobiatul Adhawiyah",
+                "img": "programmer/programmer app/programmerApps_BellaRhobiatulAdhawiyah.png"
             },
             {
                 "title": "Bendahara",
-                "name": "Nama Lengkap",
+                "name": "Atifa Fiorenza",
                 "img": null
             }
         ],
@@ -26,66 +26,80 @@
             {
                 "name": "Marketing",
                 "ketua": {
-                    "name": "Nama Ketua Divisi",
-                    "img": null
+                    "name": "Zainuri Mahmud",
+                    "img": "desainer/desainer app/DesainerApps_ZainuriMahmud.jpg"
                 },
                 "anggota": [
                     {
+                        "name": "Achmad Ali Baidlowi",
+                        "img": null
+                    },
+                    {
+                        "name": "Akhmad Lazuardi",
+                        "img": "desainer/desainer app/DesainerApps_AkhmadLazuardi.JPG"
+                    },
+                    {
+                        "name": "Muhammad Rafif Al Aziz",
+                        "img": "programmer/programmer game/ProgrammerGame_MuhammadRafifAlAziz.jpg"
+                    },
+                    {
                         "name": "Wildan Ziaulhaq",
                         "img": "programmer/programmer app/wildan.png"
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
                     }
                 ]
             },
             {
                 "name": "Produksi",
                 "ketua": {
-                    "name": "Nama Ketua Divisi",
+                    "name": "Bintang Fathur Rahman",
+                    "img": "desainer/desainer game/DesignerGame_Bintang Fathur Rahman.png"
+                },
+                "anggota": [
+                    {
+                        "name": "Azhar Izzannada Elbachtiar",
+                        "img": "desainer/desainer app/DesignerApps_Azhar Izzannada E.jpg"
+                    },
+                    {
+                        "name": "Fabiansyah Raam Pontoh",
+                        "img": "programmer/programmer game/programmerGame_Fabiansyah Raam.jpg"
+                    },
+                    {
+                        "name": "Dion Ricky Saputra",
+                        "img": "artist/artist app/artistApp_Dion Ricky Saputra.jpeg"
+                    }
+                ]
+            },
+            {
+                "name": "Pengawasan",
+                "ketua": {
+                    "name": "Reinhard Jonathan Silalahi",
                     "img": null
                 },
                 "anggota": [
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Renaldi Sidiq Wibowo",
+                        "img": "desainer/desainer app/Designer Apps_ Renaldi Wibowo.jpg"
                     },
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Gusti Rahman Pariska Ajitama",
                         "img": null
+                    }
+                ]
+            },
+            {
+                "name": "Eksternal",
+                "ketua": {
+                    "name": "Muhammad Wildan Oktavian",
+                    "img": "artist/artist app/artistApp_wildan oktavian.png"
+                },
+                "anggota": [
+                    {
+                        "name": "Caesar Rio Anggina Toruan",
+                        "img": "desainer/desainer game/DesainerGame_Caesar Rio Anggina Toruan.jpg"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Lalu Muhammad Arfian Arya Gandhi",
+                        "img": "desainer/desainer game/DesignerGame_Lalu Muhamad Arfian Arya Gandhi.JPG"
                     }
                 ]
             }
@@ -94,95 +108,279 @@
             {
                 "name": "Designer",
                 "ketua": {
-                    "name": "Nama Ketua Divisi",
-                    "img": null
+                    "name": "Muhammad Yusuf Azari",
+                    "img": "desainer/desainer game/DesainerGame_Muhammad Yusuf Azari.jpg"
                 },
                 "anggota": [
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Afif Naufal Dhaifullah",
                         "img": null
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Akhmad Lazuardi",
+                        "img": "desainer/desainer app/DesainerApps_AkhmadLazuardi.JPG"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Ayu Made Krisna Dewi",
+                        "img": "desainer/desainer app/DesainerApps_Ayu Made Krisna Dewi.JPG"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Azhar Izzannada Elbachtiar",
+                        "img": "desainer/desainer app/DesignerApps_Azhar Izzannada E.jpg"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Bintang Fathur Rahman",
+                        "img": "desainer/desainer game/DesignerGame_Bintang Fathur Rahman.png"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Budi Iswanto",
+                        "img": "desainer/desainer game/designerGame_Budi Iswanto.jpg"
+                    },
+                    {
+                        "name": "Caesar Rio Anggina Toruan",
+                        "img": "desainer/desainer game/DesainerGame_Caesar Rio Anggina Toruan.jpg"
+                    },
+                    {
+                        "name": "I Komang Pranadita Kusuma Jaya",
+                        "img": "desainer/desainer app/DesainerApps_I Komang Pranadita Kusuma Jaya.jpg"
+                    },
+                    {
+                        "name": "Ilham Ramadhan",
+                        "img": "desainer/desainer app/DesainerApps_IlhamRamadhan.jpg"
+                    },
+                    {
+                        "name": "Lalu Muhammad Arfian Arya Gandhi",
+                        "img": "desainer/desainer game/DesignerGame_Lalu Muhamad Arfian Arya Gandhi.JPG"
+                    },
+                    {
+                        "name": "Muhammad Haikal Fisabillah",
+                        "img": "desainer/desainer game/DesainerGame_Muhammad Haikal Fisabilillah.jpeg"
+                    },
+                    {
+                        "name": "Muhammad Ilman Nadhir",
+                        "img": "desainer/desainer game/DesignerGame_Muhammad Ilman Nadhir.jpg"
+                    },
+                    {
+                        "name": "Muhammad Najmi Faisal",
+                        "img": "desainer/desainer game/DesignerGame_Muhammad Najmi.jpg"
+                    },
+                    {
+                        "name": "Mujiburrahman Haekal Fajry",
+                        "img": "desainer/desainer game/DesignerGame_Mujiburrahman Haekal Fajry.jpg"
+                    },
+                    {
+                        "name": "Renaldi Sidiq Wibowo",
+                        "img": "desainer/desainer app/Designer Apps_ Renaldi Wibowo.jpg"
+                    },
+                    {
+                        "name": "Stephen Pholim",
+                        "img": "desainer/desainer app/DesignerApps_Stephen Pholim.jpg"
+                    },
+                    {
+                        "name": "Wira Zeta Prakosa",
+                        "img": "desainer/desainer game/desainerGame_Wira Zeta Prakosa.png"
+                    },
+                    {
+                        "name": "Yulianus Wayan Yudistira Rudja",
+                        "img": "desainer/desainer app/DesignerApps_Yulianus Wayan Yudistira Rudja.jpg"
+                    },
+                    {
+                        "name": "Zainuri Mahmud",
+                        "img": "desainer/desainer app/DesainerApps_ZainuriMahmud.jpg"
                     }
                 ]
             },
             {
                 "name": "Programmer",
                 "ketua": {
-                    "name": "Nama Ketua Divisi",
-                    "img": null
+                    "name": "Robertus Dwi Ari Utomo",
+                    "img": "programmer/programmer game/ProgrammerGame_RobertusDwiAriUtomo.jpg"
                 },
                 "anggota": [
+                    {
+                        "name": "Ahmad Saifuddin",
+                        "img": "programmer/programmer game/ProgrammerGame_AhmadSaifuddin.jpg"
+                    },
+                    {
+                        "name": "Atifa Fiorenza",
+                        "img": null
+                    },
+                    {
+                        "name": "Bagus Tri Widiyanto",
+                        "img": "programmer/programmer game/ProgrammerGame_BagusTriWidiyanto.JPG"
+                    },
+                    {
+                        "name": "Bella Rhobiatul Adhawiyah",
+                        "img": "programmer/programmer app/programmerApps_BellaRhobiatulAdhawiyah.png"
+                    },
+                    {
+                        "name": "Brillian Ade Putra",
+                        "img": "programmer/programmer app/programmerApp_BrilianAdePutra.jpg"
+                    },
+                    {
+                        "name": "Christian Doxa Hamasiah",
+                        "img": "programmer/programmer game/ProgrammerApps_Christian Doxa Hamasiah.jpeg"
+                    },
+                    {
+                        "name": "Dave Putra Radin",
+                        "img": "programmer/programmer game/ProgrammerGame_DavePutraRadin.jpeg"
+                    },
+                    {
+                        "name": "Fabiansyah Raam Pontoh",
+                        "img": "programmer/programmer game/programmerGame_Fabiansyah Raam.jpg"
+                    },
+                    {
+                        "name": "Gilbert Samuel Nicholas Silaban",
+                        "img": "programmer/programmer game/Programmer Game_Gilbert Samuel Nicholas Silaban.jpg"
+                    },
+                    {
+                        "name": "Ikhwan Maulana Akbar",
+                        "img": "programmer/programmer app/programmerApps_Ikhwan Maulana Akbar.jpg"
+                    },
+                    {
+                        "name": "Ilham Dwi Muchlison",
+                        "img": "programmer/programmer app/programmerApps_Ilham Dwi Muchlison.jpeg"
+                    },
+                    {
+                        "name": "Ivan Lianto",
+                        "img": "programmer/programmer game/programmerGame_IvanLianto.jpg"
+                    },
+                    {
+                        "name": "Mahendra Yuda Tama",
+                        "img": "programmer/programmer game/ProgrammerGame_MahendraYudaTama.jpg"
+                    },
+                    {
+                        "name": "Muhammad Farhan Abdur Rosyid",
+                        "img": "programmer/programmer app/programmerApps_Muhammad Farhan Abdur Rosyid.jpg"
+                    },
+                    {
+                        "name": "Muhammad Iqbal Kalevi",
+                        "img": "programmer/programmer game/ProgrammerGame_MuhammadIqbalKalevi.png"
+                    },
+                    {
+                        "name": "Muhammad Rafif Al Aziz",
+                        "img": "programmer/programmer game/ProgrammerGame_MuhammadRafifAlAziz.jpg"
+                    },
+                    {
+                        "name": "Muhammad Rosyid Aminuddin",
+                        "img": "programmer/programmer app/programmerApps_Muhammad Rosyid Aminuddin.jpg"
+                    },
+                    {
+                        "name": "Mutiharis Dauber Panjaitan",
+                        "img": "programmer/programmer app/programmerApp_MutiharisDauberPanjaitan.jpeg"
+                    },
+                    {
+                        "name": "Naufal Afif Bunyamin",
+                        "img": "programmer/programmer app/programmerApps_Naufal Afif.jpg"
+                    },
+                    {
+                        "name": "Naufal Fadhiil Rafino",
+                        "img": "programmer/programmer app/programmerApps_NaufalFadhiilRafino.jpg"
+                    },
+                    {
+                        "name": "Raehan Rahmad Fadilah",
+                        "img": "programmer/programmer game/ProgrammerGame_RaehanRahmad.jpg"
+                    },
+                    {
+                        "name": "Reinhard Jonathan Silalahi",
+                        "img": null
+                    },
+                    {
+                        "name": "Rigel Vibi Ramadhan",
+                        "img": "programmer/programmer game/programmerGame_Rigel Vibi Ramadhan.jpeg"
+                    },
+                    {
+                        "name": "Stefanus Dany S. S.",
+                        "img": "programmer/programmer app/programmerApp_StefanusDany.jpg"
+                    },
                     {
                         "name": "Wildan Ziaulhaq",
                         "img": "programmer/programmer app/wildan.png"
                     },
                     {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
-                    },
-                    {
-                        "name": "Nama Lengkap",
-                        "img": null
+                        "name": "Yohannes Sebastian Sibarani",
+                        "img": "programmer/programmer game/ProgrammerGame_YohannesSebastianSibarani.jpg"
                     }
                 ]
             },
             {
                 "name": "Artist",
                 "ketua": {
-                    "name": "Nama Ketua Divisi",
+                    "name": "Ezra Reihardian Sihotang",
                     "img": null
                 },
                 "anggota": [
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Abdurrizqo Arrahman",
                         "img": null
                     },
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Achmad Ali Baidlowi",
                         "img": null
                     },
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Alsiendo Dewantara",
                         "img": null
                     },
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Amanda Vania Audrey",
+                        "img": "artist/artist game/ArtistGame_Amanda Vania Audrey.jpg"
+                    },
+                    {
+                        "name": "Atia Shafiqa",
+                        "img": "artist/artist app/artistApp_Atia Shafiqa.jpg"
+                    },
+                    {
+                        "name": "Audrey Ardelia",
+                        "img": "artist/artist game/artistGame_Audrey Ardelia.jpg"
+                    },
+                    {
+                        "name": "Della Akhidatul Izzah",
+                        "img": "artist/artist app/artistApp_Della Akhidatul Izzah.jpg"
+                    },
+                    {
+                        "name": "Dion Ricky Saputra",
+                        "img": "artist/artist app/artistApp_Dion Ricky Saputra.jpeg"
+                    },
+                    {
+                        "name": "Gusti Rahman Pariska Ajitama",
                         "img": null
                     },
                     {
-                        "name": "Nama Lengkap",
+                        "name": "Hamdani Al-Ikhsan",
+                        "img": "artist/artist game/ArtistGame_Hamdani Al Ikhsan.jpg"
+                    },
+                    {
+                        "name": "Kresna Hafizh Muhaimin",
+                        "img": "artist/artist game/ArtistGame_Kresna Hafizh Muhaimin.jpg"
+                    },
+                    {
+                        "name": "Luh Putu Dessy Citra Yoseva Wardana",
+                        "img": "artist/artist app/artistApp_Luh Putu Dessy Citra Yoseva Wardana.jpg"
+                    },
+                    {
+                        "name": "Muhammad Daffa Rafi Ramadhani",
                         "img": null
+                    },
+                    {
+                        "name": "Muhammad Fajar Alfath",
+                        "img": "artist/artist game/ArtistGame_Muhammad Fajar Alfath.jpg"
+                    },
+                    {
+                        "name": "Muhammad Wildan Oktavian",
+                        "img": "artist/artist app/artistApp_wildan oktavian.png"
+                    },
+                    {
+                        "name": "Muhammad Hafiizul Kirom",
+                        "img": "artist/artist game/artistGame_MuhammadHafiizulKirom.jpg"
+                    },
+                    {
+                        "name": "Natasya Tesalonika Siahaan",
+                        "img": "artist/artist game/artistGame_NatasyaTesalonikaSiahaan.jpg"
+                    },
+                    {
+                        "name": "Putri Nur Utami Ramadhani",
+                        "img": "artist/artist app/artistApp_Putri Nur Utami Ramadhani.jpg"
                     }
                 ]
             }
