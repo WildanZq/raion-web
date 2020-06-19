@@ -98,7 +98,7 @@ function getAllUser($connect) {
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
+    <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
         <a href="create-user.php" class="btn btn-secondary mt-5">+ Tambah User</a>
         <div class="card mt-3">
             <div class="card-body">

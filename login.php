@@ -48,7 +48,7 @@ if (isset($_SESSION['login'])) {
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 d-flex justify-content-center align-items-center login">
+    <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 d-flex justify-content-center align-items-center login">
         <div class="card">
             <div class="card-body">
                 <h1 class="h4 mb-3 text-center text-primary">Masuk</h1>

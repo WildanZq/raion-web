@@ -730,6 +730,9 @@ footer .icon-wrapper.youtube {
 .width-controller {
     max-width: 1312px;
     margin: auto;
+}
+
+.height-controller {
     min-height: 95vh;
     min-height: calc(100vh - 9rem);
 }

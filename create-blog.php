@@ -62,7 +62,7 @@ if (!isset($_SESSION['login'])) {
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
+    <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
         <form action="./php/blog/create-blog.php" method="POST" class="mt-5">
             <div class="form-group">
                 <label for="title">Judul Artikel</label>

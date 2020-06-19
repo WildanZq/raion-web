@@ -13,26 +13,13 @@
             },
             {
                 "title": "Administrasi",
-                "Administrasi": {
-                    "name": "Bella Rhobiatul Adhawiyah",
-                    "img": "programmer/programmer app/programmerApps_BellaRhobiatulAdhawiyah.png"                                    
-                },
-                "Anggota Administrasi": {
-                    "name": "Hamdani Al-Ikhsan",
-                    "img": "artist/artist game/ArtistGame_Hamdani Al Ikhsan.jpg"                    
-                }
-
+                "name": "Bella Rhobiatul Adhawiyah",
+                "img": "programmer/programmer app/programmerApps_BellaRhobiatulAdhawiyah.png"
             },
             {
                 "title": "Bendahara",
-                "Bendahara": {
-                    "name": "Atifa Fiorenza",
-                    "img": null
-                },
-                "Anggota Bendahara": {
-                    "name": "Ayu Made Krisna Dewi",
-                    "img": "desainer/desainer app/DesainerApps_Ayu Made Krisna Dewi.JPG"                    
-                }
+                "name": "Atifa Fiorenza",
+                "img": null
             }
         ],
         "internal": [
@@ -44,20 +31,20 @@
                 },
                 "anggota": [
                     {
-                        "name": "Wildan Ziaulhaq",
-                        "img": "programmer/programmer app/wildan.png"
-                    },
-                    {
-                        "name": "Muhammad Rafif Al Aziz",
-                        "img": "programmer/programmer game/ProgrammerGame_MuhammadRafifAlAziz.jpg"
-                    },
-                    {
                         "name": "Achmad Ali Baidlowi",
                         "img": null
                     },
                     {
                         "name": "Akhmad Lazuardi",
                         "img": "desainer/desainer app/DesainerApps_AkhmadLazuardi.JPG"
+                    },
+                    {
+                        "name": "Muhammad Rafif Al Aziz",
+                        "img": "programmer/programmer game/ProgrammerGame_MuhammadRafifAlAziz.jpg"
+                    },
+                    {
+                        "name": "Wildan Ziaulhaq",
+                        "img": "programmer/programmer app/wildan.png"
                     }
                 ]
             },
@@ -108,7 +95,7 @@
                 "anggota": [
                     {
                         "name": "Caesar Rio Anggina Toruan",
-                        "img": "desainer/desainer gamer/DesainerGame_Caesar Rio Anggina Toruan.jpg"
+                        "img": "desainer/desainer game/DesainerGame_Caesar Rio Anggina Toruan.jpg"
                     },
                     {
                         "name": "Lalu Muhammad Arfian Arya Gandhi",
@@ -151,7 +138,7 @@
                     },
                     {
                         "name": "Caesar Rio Anggina Toruan",
-                        "img": "desainer/desainer gamer/DesainerGame_Caesar Rio Anggina Toruan.jpg"
+                        "img": "desainer/desainer game/DesainerGame_Caesar Rio Anggina Toruan.jpg"
                     },
                     {
                         "name": "I Komang Pranadita Kusuma Jaya",
@@ -210,10 +197,6 @@
                     "img": "programmer/programmer game/ProgrammerGame_RobertusDwiAriUtomo.jpg"
                 },
                 "anggota": [
-                    {
-                        "name": "Wildan Ziaulhaq",
-                        "img": "programmer/programmer app/wildan.png"
-                    },
                     {
                         "name": "Ahmad Saifuddin",
                         "img": "programmer/programmer game/ProgrammerGame_AhmadSaifuddin.jpg"
@@ -309,6 +292,10 @@
                     {
                         "name": "Stefanus Dany S. S.",
                         "img": "programmer/programmer app/programmerApp_StefanusDany.jpg"
+                    },
+                    {
+                        "name": "Wildan Ziaulhaq",
+                        "img": "programmer/programmer app/wildan.png"
                     },
                     {
                         "name": "Yohannes Sebastian Sibarani",

@@ -222,7 +222,7 @@ function getRecommendation($connect) {
         </button>
     </nav>
     <img class="blog-banner" src="<?php echo getBlogImg($connect); ?>" alt="Banner Artikel">
-    <div class="width-controller p-0 px-md-3 mx-4 mx-lg-5 mt-5 blog">
+    <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 mt-5 blog">
         <div class="row">
             <div class="col-md-9 content">
                 <?php echo getBlog($connect); ?>
