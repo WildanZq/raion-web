@@ -410,7 +410,7 @@ function generateProductPage(args) {
         }
 
         const banner = document.getElementById('img-banner');
-        banner.style.backgroundImage = product.img ? `url(./assets/img/product/${product.img})` : 'url(./assets/img/default.jpg)';
+        banner.style.backgroundImage = product.img ? `url("./assets/img/product/${product.img}")` : 'url("./assets/img/default.jpg")';
         if (!product.img) banner.classList.add('none');
 
         const name = document.getElementById('product-name');
@@ -419,8 +419,13 @@ function generateProductPage(args) {
         desc.innerHTML = product.desc;
         const team = document.getElementById('product-team');
         team.innerHTML = `Oleh: ${product.team}`;
+
         const link = document.getElementById('product-link');
-        link.href = product.link ? product.link : '';
+        if (product.link) {
+            link.href = product.link;
+        } else {
+            link.remove();
+        }
 
         const designer = document.getElementById('designer');
         product.designer.forEach(d => {
@@ -442,33 +447,59 @@ function generateProductPage(args) {
         });
 
         const sliderList = document.getElementById('glide-product-list');
+
+        // if there's no screenshot then remove screenshot elements
+        if (product.screenshots.length === 0) {
+            document.getElementById('product-screenshot-title').remove();
+            document.getElementById('glide-product-wrapper').remove();
+            return;
+        }
+
+        let imgWidthTotal = 0;
+        let imgCount = 0;
         product.screenshots.forEach(ss => {
-            let img = document.createElement('img');
+            let img = new Image();
             img.classList.add('product-ss');
             img.classList.add('glide__slide');
             img.src = `./assets/img/product/${ss}`;
             sliderList.appendChild(img);
+            img.onload = function() {
+                imgWidthTotal += (img.naturalWidth / img.naturalHeight) * 300 + 20;
+                imgCount++;
+                initProductSlider(imgWidthTotal, imgCount);
+            };
+            initProductSlider(imgWidthTotal, imgCount);
         });
+    });
+}
 
+function initProductSlider(imgWidthTotal, imgCount) {
+    new Glide('.glide-ss', {
+        // perView: window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3,
+        perView: window.innerWidth / ((imgWidthTotal / imgCount)),
+        bound: true,
+        gap: 20,
+    }).mount();
+
+    const sliderWrapper = document.querySelector('.glide-ss .glide__slides');
+    sliderWrapper.style.width = `${imgWidthTotal}px`;
+
+    window.onresize = function (event) {
+        const width = event.target.innerWidth;
         new Glide('.glide-ss', {
-            perView: window.innerWidth < 768 ? 1 : window.innerWidth < 992 ? 2 : 3,
+            // perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+            perView: window.innerWidth / ((imgWidthTotal / imgCount)),
             bound: true,
             gap: 20,
         }).mount();
-        window.onresize = function (event) {
-            const width = event.target.innerWidth;
-            new Glide('.glide-ss', {
-                perView: width < 768 ? 1 : width < 992 ? 2 : 3,
-                bound: true,
-                gap: 20,
-            }).mount();
-            new Glide('.glide-product', {
-                perView: width < 768 ? 1 : width < 992 ? 2 : 3,
-                bound: true,
-                gap: 20,
-            }).mount();
-        };
-    });
+        new Glide('.glide-product', {
+            perView: width < 768 ? 1 : width < 992 ? 2 : 3,
+            bound: true,
+            gap: 20,
+        }).mount();
+
+        sliderWrapper.style.width = `${imgWidthTotal}px`;
+    };
 }
 
 // get product & member data
@@ -510,11 +541,11 @@ function generateProduct(DATA) {
         productList += `
         <li class="glide__slide product-card card">
             <div class="card-header p-0">
-                <div class="product-img bg-cover w-100" style="background-image: url(${img});"></div>
+                <div class="product-img bg-cover w-100" style="background-image: url('${img}');"></div>
             </div>
             <div class="card-body pt-3">
                 <h2 class="h5 text-truncate">${product.name}</h2>
-                <p class="text-truncate">${product.desc}</p>
+                <p class="text-truncate">${product.desc ? product.desc : ''}</p>
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center">
                 <span class="date text-${product.category === 'App' ? 'success' : 'danger'}">${product.category}</span>

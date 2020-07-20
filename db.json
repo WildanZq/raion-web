@@ -395,9 +395,7 @@
             "category": "App",
             "link": null,
             "team": "Kelompok 1 Apps",
-            "screenshots": [
-                ""
-            ],
+            "screenshots": [],
             "designer": [
                 "Renaldi Sidiq Wibowo"
             ],
@@ -407,7 +405,7 @@
             ],
             "programmer": [
                 "Afridha Berliani",
-                "Zainuri Mahmud",
+                "Zainuri Mahmud"
             ]
         },
         {
@@ -418,9 +416,7 @@
             "category": "App",
             "link": null,
             "team": "Kelompok 2 Apps",
-            "screenshots": [
-                ""
-            ],
+            "screenshots": [],
             "designer": [
                 "Akhmad Lazuardi"
             ],
@@ -441,9 +437,7 @@
             "category": "App",
             "link": null,
             "team": "Kelompok 3 Apps",
-            "screenshots": [
-                ""
-            ],
+            "screenshots": [],
             "designer": [
                 "Yudi Anantha"
             ],
@@ -457,22 +451,22 @@
         },
         {
             "id": 4,
-            "img": "assets/img/product/Trackeat/201173.jpg",
+            "img": "Trackeat/201173.jpg",
             "name": "Trackeat",
             "desc": "Trackeat adalah aplikasi untuk memantau asupan kalori dan menawarkan menu makanan sehat.",
             "category": "App",
             "link": "https://drive.google.com/file/d/1wGqeqjwDoC0jYlVXYjWZGL5g5v4cv27a/view?usp=sharing",
             "team": "Kelompok 4 Apps",
             "screenshots": [
-                "assets/img/product/Trackeat/201173.jpg",
-                "assets/img/product/Trackeat/201174.jpg",
-                "assets/img/product/Trackeat/201175.jpg"
+                "Trackeat/201173.jpg",
+                "Trackeat/201174.jpg",
+                "Trackeat/201175.jpg"
             ],
             "designer": [
                 "Vivy"
             ],
             "artist": [
-                "Bella",
+                "Bella"
             ],
             "programmer": [
                 "Martin",
@@ -482,19 +476,19 @@
         },
         {
             "id": 5,
-            "img": "assets/img/product/Oketrip/201176.jpg",
+            "img": "Oketrip/201176.jpg",
             "name": "Oketrip",
             "desc": "Bosen jalan-jalan sendirian ? Oketrip akan membantu anda mencari grup traveling ke tempat yang anda idamkan",
             "category": "App",
             "link": "https://drive.google.com/file/d/1COOKdtta8woEsnLBNBYqFn2cuXinumza/view?usp=sharing",
             "team": "Kelompok 5 Apps",
             "screenshots": [
-                "assets/img/product/Oketrip/201176.jpg",
-                "assets/img/product/Oketrip/201177.jpg",
-                "assets/img/product/Oketrip/201178.jpg",
-                "assets/img/product/Oketrip/201179.jpg",
-                "assets/img/product/Oketrip/201180.jpg",
-                "assets/img/product/Oketrip/201181.jpg"
+                "Oketrip/201176.jpg",
+                "Oketrip/201177.jpg",
+                "Oketrip/201178.jpg",
+                "Oketrip/201179.jpg",
+                "Oketrip/201180.jpg",
+                "Oketrip/201181.jpg"
             ],
             "designer": [
                 "Dhiki Sekti"
@@ -516,9 +510,7 @@
             "category": "App",
             "link": null,
             "team": "Kelompok 6 Apps",
-            "screenshots": [
-                ""
-            ],
+            "screenshots": [],
             "designer": [
                 "Azhar Izzannada Elbachtiar"
             ],
@@ -533,19 +525,19 @@
         },
         {
             "id": 7,
-            "img": "assets/img/product/7Shop/Main.png",
+            "img": "7Shop/Main.png",
             "name": "7Shop",
             "desc": "Dapatkan barang murah dengan mudah menggunakan 7APPS",
             "category": "App",
             "link": null,
             "team": "Kelompok 7 Apps",
             "screenshots": [
-                "assets/img/product/7Shop/dashboard.png",
-                "assets/img/product/7Shop/item.png",
-                "assets/img/product/7Shop/kategori.png",
-                "assets/img/product/7Shop/login.png",
-                "assets/img/product/7Shop/Main.png",
-                "assets/img/product/7Shop/Poster.png"
+                "7Shop/dashboard.png",
+                "7Shop/item.png",
+                "7Shop/kategori.png",
+                "7Shop/login.png",
+                "7Shop/Main.png",
+                "7Shop/Poster.png"
             ],
             "designer": [
                 "Miftah Muhammad Farhan"
@@ -561,20 +553,20 @@
         },
         {
             "id": 8,
-            "img": "assets/img/product/Leskuy/201185.jpg",
+            "img": "Leskuy/201185.jpg",
             "name": "Leskuy",
             "desc": "Leskuy adalah aplikasi bimbingan belajar online dengan menawarkan tarif per jam pada setiap kelas dan pengajar yang ditawarkan.",
             "category": "App",
             "link": "https://drive.google.com/file/d/1tw02XKnVFWhtUU5AiIWC9PqmIbyMX-7G/view?usp=sharing",
             "team": "Kelompok 8 Apps",
             "screenshots": [
-                "assets/img/product/Leskuy/201185.jpg",
-                "assets/img/product/Leskuy/201186.jpg",
-                "assets/img/product/Leskuy/201187.jpg",
-                "assets/img/product/Leskuy/201188.jpg",
-                "assets/img/product/Leskuy/201189.jpg",
-                "assets/img/product/Leskuy/201190.jpg",
-                "assets/img/product/Leskuy/201191.jpg"
+                "Leskuy/201185.jpg",
+                "Leskuy/201186.jpg",
+                "Leskuy/201187.jpg",
+                "Leskuy/201188.jpg",
+                "Leskuy/201189.jpg",
+                "Leskuy/201190.jpg",
+                "Leskuy/201191.jpg"
             ],
             "designer": [
                 "Chairunnisa Yusuf"
@@ -590,18 +582,18 @@
         },
         {
             "id": 9,
-            "img": "assets/img/product/GroFood/splash screen-2.png",
+            "img": "GroFood/splash screen-2.png",
             "name": "GroFood",
-            "desc": "Yang ini gatau beda gofood sama apps ini, appsnya gabisa jalan tapi ada Screenshotnya",
+            "desc": "Aplikasi pemesanan makanan/camilan secara grosir",
             "category": "App",
             "link": "https://drive.google.com/file/d/1Gieob0O6fQIHSZCXtwjLzhI4eBf_Q7Yr/view?usp=sharing",
             "team": "Kelompok 9 Apps",
             "screenshots": [
-                "assets/img/product/GroFood/Home2-2.png",
-                "assets/img/product/GroFood/login-2.png",
-                "assets/img/product/GroFood/Search.png",
-                "assets/img/product/GroFood/splash screen-2.png",
-                "assets/img/product/GroFood/Warung Detail.png"
+                "GroFood/Home2-2.png",
+                "GroFood/login-2.png",
+                "GroFood/Search.png",
+                "GroFood/splash screen-2.png",
+                "GroFood/Warung Detail.png"
             ],
             "designer": [
                 "Caesar Rio Anggina Toruan"
@@ -617,15 +609,15 @@
         },
         {
             "id": 10,
-            "img": "assets/img/product/Bismitstock/201164.jpg",
+            "img": "Bismitstock/201164.jpg",
             "name": "Bismitstock",
             "desc": "Sebuah aplikasi pencatatan pembelian barang jualan yang ada di kementrian BISMIT BEM FILKOM UB. Dimana dengan aplikasi ini setiap pembelian dan stock barang bisa tercatat secara digital",
             "category": "App",
             "link": "https://drive.google.com/file/d/1gcc_-HUCR24wATJPNJ48HSnWvfY67LBn/view?usp=sharing",
             "team": "Bismitstock Team",
             "screenshots": [
-                "assets/img/product/Bismitstock/201164.jpg",
-                "assets/img/product/Bismitstock/201165.jpg"
+                "Bismitstock/201164.jpg",
+                "Bismitstock/201165.jpg"
             ],
             "designer": [
                 "iqbal"
@@ -640,15 +632,15 @@
         },
         {
             "id": 11,
-            "img": "assets/img/product/GoLaundry/201166.jpg",
+            "img": "GoLaundry/201166.jpg",
             "name": "GoLaundry",
             "desc": "Cari tempat laundry terdekat dengan promo laundry dengan harga termurah menggunakan GoLaundry.",
             "category": "App",
             "link": "https://drive.google.com/file/d/1nS-zpAe9mTDUA3eMdGgKrxmuuGj5sqTr/view?usp=sharing",
             "team": "Tim Raion",
             "screenshots": [
-                "assets/img/product/GoLaundry/201166.jpg",
-                "assets/img/product/GoLaundry/201167.jpg"
+                "GoLaundry/201166.jpg",
+                "GoLaundry/201167.jpg"
             ],
             "designer": [
                 "Tim Raion"
@@ -662,18 +654,18 @@
         },
         {
             "id": 12,
-            "img": "assets/img/product/Kampung Budaya/201168.jpg",
+            "img": "Kampung Budaya/201168.jpg",
             "name": "Kampung Budaya",
             "desc": "Lihat info terlengkap dan terbaru seputar kampung budaya 2018.",
             "category": "App",
             "link": "https://drive.google.com/file/d/13cQwsYeQPb2XuumHSZUMVvrpljYWD8VX/view?usp=sharing",
             "team": "Kampung Budaya Team",
             "screenshots": [
-                "assets/img/product/Kampung Budaya/201168.jpg",
-                "assets/img/product/Kampung Budaya/201168.jpg",
-                "assets/img/product/Kampung Budaya/201168.jpg",
-                "assets/img/product/Kampung Budaya/201168.jpg",
-                "assets/img/product/Kampung Budaya/201168.jpg"
+                "Kampung Budaya/201168.jpg",
+                "Kampung Budaya/201168.jpg",
+                "Kampung Budaya/201168.jpg",
+                "Kampung Budaya/201168.jpg",
+                "Kampung Budaya/201168.jpg"
             ],
             "designer": [
                 "rehan"
@@ -688,17 +680,17 @@
         },
         {
             "id": 13,
-            "img": "assets/img/product/Palapa/207557.jpg",
+            "img": "Palapa/207557.jpg",
             "name": "Palapa",
             "desc": "Aplikasi traveling untuk destinasi lokal",
             "category": "App",
             "link": "https://drive.google.com/file/d/1jYGM9khW5N-Z0YdXag7T0OflLbpecWmJ/view?usp=sharing",
             "team": "Tim Raion",
             "screenshots": [
-                "assets/img/product/Palapa/207557.jpg",
-                "assets/img/product/Palapa/207558.jpg",
-                "assets/img/product/Palapa/207559.jpg",
-                "assets/img/product/Palapa/207560.jpg"
+                "Palapa/207557.jpg",
+                "Palapa/207558.jpg",
+                "Palapa/207559.jpg",
+                "Palapa/207560.jpg"
             ],
             "designer": [
                 "Tim Raion"
@@ -718,9 +710,7 @@
             "category": "Game",
             "link": null,
             "team": "Kelompok 1 Game",
-            "screenshots": [
-                "",
-            ],
+            "screenshots": [],
             "designer": [
                 "Azari",
                 "Mujiburrahman Haekal Fajry"
@@ -742,9 +732,7 @@
             "category": "Game",
             "link": null,
             "team": "Kelompok 2 Game",
-            "screenshots": [
-                "",
-            ],
+            "screenshots": [],
             "designer": [
                 "Wildan Rahmat",
                 "Titan"
@@ -760,15 +748,15 @@
         },
         {
             "id": 16,
-            "img": "assets/img/product/Save Me Hooman/Foto Besar.jpg",
+            "img": "Save Me Hooman/Foto Besar.jpg",
             "name": "Save Me, Hooman!",
             "desc": "Bantu hewan melindungi rumah mereka dari penebangan hutan",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1osR8lNyG0yn4HC6eIdtLGr6GvvzD-tvF/view?usp=sharing",
             "team": "Kelompok 3 Game",
             "screenshots": [
-                "assets/img/product/Save Me Hooman/Foto Besar.jpg",
-                "assets/img/product/Save Me Hooman/Screenshot.jpg"
+                "Save Me Hooman/Foto Besar.jpg",
+                "Save Me Hooman/Screenshot.jpg"
             ],
             "designer": [
                 "Bintang Fathur Rahman",
@@ -791,11 +779,9 @@
             "category": "Game",
             "link": null,
             "team": "Kelompok 4 Game",
-            "screenshots": [
-                "",
-            ],
+            "screenshots": [],
             "designer": [
-                "Ians Adji Adhitama",
+                "Ians Adji Adhitama"
             ],
             "artist": [
                 "Hamdani Al Ikhsan",
@@ -809,14 +795,14 @@
         },
         {
             "id": 18,
-            "img": "assets/img/product/Vote me please/201184.jpg",
+            "img": "Vote me please/201184.jpg",
             "name": "Vote Me please",
             "desc": "Jadilah calon president terbaik. Kumpulkan audience sebanyak banyaknya, upgrade panggung dan pakaianmu.",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1dH_bjO9rktYWvvYiQDijjolKZaV-Tezw/view?usp=sharing",
             "team": "Kelompok 5 Game",
             "screenshots": [
-                "assets/img/product/Vote me please/201184.jpg",
+                "Vote me please/201184.jpg"
             ],
             "designer": [
                 "Aditya Negara",
@@ -834,16 +820,16 @@
         },
         {
             "id": 19,
-            "img": "assets/img/product/Owl Corp/Foto Besar.png",
+            "img": "Owl Corp/Foto Besar.png",
             "name": "Owl Corps",
             "desc": "OwlCorp adalah game edukasi interaktif yang mendukung proses pembelajaran dengan memberikan reward ketika pemain berhasil menyelesaikan tantangan tertentu. Pada game ini anda bermain sebagai seekor burung hantu yang ditugasi untuk menyortir burung hantu dan kemudian menghancurkan kotak kayu dengan mengetikkan kata-kata yang muncul pada kotak tersebut dengan benar. ",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1h0nCwZE49qNp2hDlhy-qW5WEJ1AVpGRx/view?usp=sharing",
             "team": "Owl Corps Team",
             "screenshots": [
-                "assets/img/product/Owl Corp/Foto Besar.png",
-                "assets/img/product/Owl Corp/Screenshot.png",
-                "assets/img/product/Owl Corp/Screenshot2.png"
+                "Owl Corp/Foto Besar.png",
+                "Owl Corp/Screenshot.png",
+                "Owl Corp/Screenshot2.png"
             ],
             "designer": [
                 "wildan"
@@ -859,15 +845,15 @@
         },
         {
             "id": 20,
-            "img": "assets/img/product/Momkleen/Foto Besar.jpg",
+            "img": "Momkleen/Foto Besar.jpg",
             "name": "Momkleen",
             "desc": "Bantu mama bersih-bersih dengan membunuh kuman dirumahnya. Hati-hati jangan sampai ikutan kotor.",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1QxqmwVpwpG-eLKs8xa6H-FxtvEWeiYK9/view?usp=sharing",
             "team": "Momkleen Team",
             "screenshots": [
-                "assets/img/product/Momkleen/Foto Besar.jpg",
-                "assets/img/product/Momkleen/Screenshot.jpg"
+                "Momkleen/Foto Besar.jpg",
+                "Momkleen/Screenshot.jpg"
             ],
             "designer": [
                 "Dwi Rama"
@@ -886,15 +872,15 @@
         },
         {
             "id": 21,
-            "img": "assets/img/product/Gelut Kuy/Foto Besar.jpg",
+            "img": "Gelut Kuy/Foto Besar.jpg",
             "name": "GelutKuy",
             "desc": "Lawan musuhmu menggunakan kartu-kartu menarik dengan karakter kedaerahan dari Indonesia.",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1X1ZFqpzj-kQ41uKpKqsIBvwzFJFvis9n/view?usp=sharing",
             "team": "Tim Raion",
             "screenshots": [
-                "assets/img/product/Gelut Kuy/Foto Besar.jpg",
-                "assets/img/product/Gelut Kuy/Screenshot.jpg"
+                "Gelut Kuy/Foto Besar.jpg",
+                "Gelut Kuy/Screenshot.jpg"
             ],
             "designer": [
                 "Tim Raion"
@@ -908,15 +894,15 @@
         },
         {
             "id": 22,
-            "img": "assets/img/product/River cleaner/201182.jpg",
+            "img": "River cleaner/201182.jpg",
             "name": "River Cleaner",
             "desc": "Bersihkan sungai secepat mungkin",
             "category": "Game",
             "link": "https://drive.google.com/file/d/1353Ud0xjl4VdjzV3BH7aVtoeUDY2RQkn/view?usp=sharing",
             "team": "River Cleaner Team",
             "screenshots": [
-                "assets/img/product/River cleaner/201182.jpg",
-                "assets/img/product/River cleaner/201183.jpg"
+                "River cleaner/201182.jpg",
+                "River cleaner/201183.jpg"
             ],
             "designer": [
                 "Greg",
@@ -934,19 +920,19 @@
         },
         {
             "id": 23,
-            "img": "assets/img/product/Melody Of The Light/messageImage_1593943159122.jpg",
+            "img": "Melody Of The Light/messageImage_1593943159122.jpg",
             "name": "Melody Of The Light",
             "desc": "Gadis kecil bernama Kinanthi yang berkeliaran di dunia bernama The Origin mencari ayahnya, tetapi petualangannya sepertinya tidak mudah, nasib apa yang akan dia temui? Apa yang terjadi di The Origin?",
             "category": "Game",
             "link": "https://heavynano.itch.io/motl-alpha",
             "team": "Melody Of The Light Team",
             "screenshots": [
-                "assets/img/product/Melody Of The Light/aOtah6.jpg",
-                "assets/img/product/Melody Of The Light/cggu6R.jpg",
-                "assets/img/product/Melody Of The Light/hk7adi.jpg",
-                "assets/img/product/Melody Of The Light/IeOxbR.jpg",
-                "assets/img/product/Melody Of The Light/messageImage_1593943159122.jpg",
-                "assets/img/product/Melody Of The Light/WuGfmE.jpg",
+                "Melody Of The Light/aOtah6.png",
+                "Melody Of The Light/cggu6R.jpg",
+                "Melody Of The Light/hk7adi.jpg",
+                "Melody Of The Light/IeOxbR.png",
+                "Melody Of The Light/messageImage_1593943159122.jpg",
+                "Melody Of The Light/WuGfmE.jpg"
             ],
             "designer": [
                 "Mujiburrahman Haekal Fajry"
