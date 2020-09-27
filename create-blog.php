@@ -63,7 +63,7 @@ if (!isset($_SESSION['login'])) {
         </button>
     </nav>
     <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 pt-5 mt-md-5">
-        <form action="./php/blog/create-blog.php" method="POST" class="mt-5">
+        <form action="./php/blog/create-blog.php" method="POST" class="mt-5 pt-md-4">
             <div class="form-group">
                 <label for="title">Judul Artikel</label>
                 <input type="text" name="title" class="form-control" id="title" maxlength="100" required>

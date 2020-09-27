@@ -728,13 +728,14 @@ footer .icon-wrapper.youtube {
 }
 
 .width-controller {
+    width: 95vw;
     max-width: 1312px;
-    margin: auto;
+    margin: auto !important;
 }
 
 .height-controller {
     min-height: 95vh;
-    min-height: calc(100vh - 9rem);
+    min-height: calc(100vh - 3rem);
 }
 
 .blog .card-img-top {
@@ -815,6 +816,7 @@ footer .icon-wrapper.youtube {
     height: 400px;
     width: 100%;
     object-fit: cover;
+    margin-bottom: 2rem;
 }
 
 .blog-detail {

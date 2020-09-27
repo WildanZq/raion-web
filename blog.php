@@ -164,7 +164,7 @@ function getAllBlog($connect) {
         </button>
     </nav>
     <div class="width-controller height-controller p-0 px-md-3 mx-4 mx-lg-5 mt-5 pt-5 blog">
-        <h1 class="sub-title thin mb-3 mb-md-4 mt-md-4 pt-md-4">Terbaru</h1>
+        <h1 class="sub-title thin mb-3 mb-md-4 mt-5 pt-md-4">Terbaru</h1>
         <div class="row">
             <?php echo getAllBlog($connect); ?>
         </div>
