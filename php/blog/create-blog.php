@@ -20,25 +20,12 @@ if (isset($_POST['title']) && $_POST['title'] != "" && isset($_POST['content']) 
 
     // check if url is image
     if ($img != null) {
-        $url_headers=get_headers($img, 1);
-        if(isset($url_headers['Content-Type'])){
-            $type = strtolower($url_headers['Content-Type']);
+        $supported_image = array('gif','jpg','jpeg','png','bmp','svg');
 
-            $valid_image_type=array();
-            $valid_image_type['image/png']='';
-            $valid_image_type['image/jpg']='';
-            $valid_image_type['image/jpeg']='';
-            $valid_image_type['image/gif']='';
-            $valid_image_type['image/svg']='';
-            $valid_image_type['image/svg+xml']='';
-            $valid_image_type['image/bmp']='';
+        $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
-            if (!isset($valid_image_type[$type])) {
-                FlashMessage::set_err('URL tidak supported');
-                header('Location: ../../create-blog.php');
-                die();
-            }
-        } else {
+        if (in_array($ext, $supported_image)) {}
+        else {
             FlashMessage::set_err('URL tidak supported');
             header('Location: ../../create-blog.php');
             die();
