@@ -233,7 +233,7 @@ function loadPage(page, args) {
 }
 
 function generateMemberPage() {
-    fetch('./db.json').then(r => r.json()).then(DATA => {
+    fetch(`./db.json?t=${Number(new Date())}`).then(r => r.json()).then(DATA => {
         const members = DATA.member;
         let img = document.createElement('div');
         img.classList.add('member-img', 'bg-cover', 'mb-3');
@@ -401,7 +401,7 @@ function generateMemberPage() {
 }
 
 function generateProductPage(args) {
-    fetch('./db.json').then(r => r.json()).then(DATA => {
+    fetch(`./db.json?t=${Number(new Date())}`).then(r => r.json()).then(DATA => {
         const products = DATA.product;
         let product = findById(products, args);
 
@@ -503,7 +503,7 @@ function initProductSlider(imgWidthTotal, imgCount) {
 }
 
 // get product & member data
-fetch('./db.json').then(r => r.json()).then(DATA => {
+fetch(`./db.json?t=${Number(new Date())}`).then(r => r.json()).then(DATA => {
     generateMember(DATA);
     generateProduct(DATA);
 });
